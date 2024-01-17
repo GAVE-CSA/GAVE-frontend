@@ -1,7 +1,6 @@
 ---
 layout: none
+baseurl: /password
 ---
 
 {%- include gave-navbar.html -%}
-
-Web Security Wizards Home Page

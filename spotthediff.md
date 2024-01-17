@@ -1,7 +1,6 @@
 ---
 layout: none
+baseurl: /spotthediff
 ---
 
 {%- include gave-navbar.html -%}
-
-Web Security Wizards Home Page
