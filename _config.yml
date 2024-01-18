@@ -3,6 +3,7 @@ description: "August 2023 to June 2024"
 owner_name: Aliya Tang
 github_username: aliyatang
 github_repo: "GAVE-frontend"
+repository: "aliyatang/GAVE-frontend"
 baseurl: "/GAVE-frontend"
 remote_theme: jekyll/minima
 minima:
