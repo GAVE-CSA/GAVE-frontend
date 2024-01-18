@@ -1,6 +1,6 @@
 ---
 layout: none
-baseurl: /password
+permalink: /password
 ---
 
 {%- include gave-navbar.html -%}

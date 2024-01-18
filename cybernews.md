@@ -1,6 +1,6 @@
 ---
 layout: none
-baseurl: /cybernews
+permalink: /cybernews
 ---
 
 {%- include gave-navbar.html -%}

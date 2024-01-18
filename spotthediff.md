@@ -1,6 +1,6 @@
 ---
 layout: none
-baseurl: /spotthediff
+permalink: /spotthediff
 ---
 
 {%- include gave-navbar.html -%}
