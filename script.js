@@ -28,14 +28,17 @@ function populateTable(newsItems) {
         // Create a row for each news item
         const row = document.createElement('tr');
 
-        // Construct table data for each attribute
+        // Construct table data for each attribute (date, title, body, url, image, source)
+        const dateCell = `<td>${item.date}</td>`;
         const titleCell = `<td>${item.title}</td>`;
-        const descriptionCell = `<td>${item.description}</td>`;
+        const bodyCell = `<td>${item.body}</td>`;
+        const urlCell = `<td>${item.url}</td>`;
+        const imageCell = `<td>${item.image}</td>`;
         const sourceCell = `<td>${item.source}</td>`;
         // Add more cells as needed based on the API response structure
 
         // Set row's HTML and append it to the table body
-        row.innerHTML = titleCell + descriptionCell + sourceCell;
+        row.innerHTML = dateCell + titleCell + bodyCell + urlCell + imageCell + sourceCell;
         tbody.appendChild(row);
     });
 }

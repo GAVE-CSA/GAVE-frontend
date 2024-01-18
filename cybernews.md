@@ -16,8 +16,11 @@ permalink: /cybernews
     <table id="newsTable">
         <thead>
             <tr>
+                <th>Date</th>
                 <th>Title</th>
-                <th>Description</th>
+                <th>Body</th>
+                <th>URL</th>
+                <th>Image</th>
                 <th>Source</th>
                 <!-- Add more columns as needed based on the API response -->
             </tr>
