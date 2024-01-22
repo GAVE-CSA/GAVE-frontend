@@ -3,43 +3,91 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Poppins:wght@400;500;600;700&display=swap');
+
+        :root {
+            --primary-color: #5c48ee;
+            --primary-color-dark: #0f1e6a;
+            --secondary-color: #f9fafe;
+            --text-color: #333333;
+            --white: #ffffff;
+            --max-width: 1200px;
+        }
+
+        *{
+            padding:0;
+            margin:0;
+            box-sizing:border-box;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
+            font-family: "Poppins", sans-serif;
+            background-color: var(--secondary-color);
         }
 
         nav {
-            background-color: #333;
-            overflow: hidden;
+            max-width: var(--max-width);
+            margin: auto;
+            padding: 1rem;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
 
-        nav a {
-            float: left;
-            display: block;
-            color: white;
-            text-align: center;
-            padding: 14px 16px;
+        .nav_logo a {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: var(--primary-color);
             text-decoration: none;
+            transition: 0.3s;
         }
 
-        nav a:hover {
-            background-color: #ddd;
-            color: black;
+        .nav_links {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
         }
+
+        .link a {
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--text-color);
+            text-decoration: none;
+            transform: 0.3s;
+        }
+
+        .link a:hover {
+            color: var(--primary-color);
+        }
+
+        .link .nav_btn {
+            padding: .5rem 2rem;
+            color: var(--white) !important;
+            background-color: var(--primary-color);
+            border-radius: 5px;
+        }
+
+        .link .nav_btn:hover {
+            background-color: var(--primary-color-dark);
+        }
+
     </style>
 </head>
 <body>
-
     <nav>
-        <a href="{{ site.baseurl }}/about">About</a>
-        <a href="{{ site.baseurl }}/spotthediff">Spot the Difference</a>
-        <a href="{{ site.baseurl }}/password">Password Generator</a>
-        <a href="{{ site.baseurl }}/cybernews">Cybersecurity News</a>
+        <div class="nav_logo"><a href="">GAVE</a></div>
+        <ul class="nav_links">
+            <li class="link"><a href="{{ site.baseurl }}/">Home</a></li>
+            <li class="link"><a href="{{ site.baseurl }}/about">About</a></li>
+            <li class="link"><a href="{{ site.baseurl }}/spotthediff">Spot the Difference</a></li>
+            <li class="link"><a href="{{ site.baseurl }}/cybernews">Cybersecurity News</a></li>
+            <li class="link"><a href="{{ site.baseurl }}/signup" class="nav_btn">Sign Up</a></li>
+        </ul>
     </nav>
-    
-<!-- Content of each tab goes here -->
-
 </body>
 </html>
  
+
