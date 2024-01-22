@@ -85,7 +85,7 @@ layout: none
 
     .image_container img {
         width: 100%;
-        max-width: 300px;
+        max-width: 1000px;
         margin: auto;
         border-radius: 10px;
     }
@@ -110,7 +110,7 @@ layout: none
                 <button>Learn More</button>
             </div>
             <div class="image_container">
-                <img src="images/image1.png" alt="image1">
+                <img src="images/image1.png" alt="image1" width="100">
                 <img src="images/image2.png" alt="image2">
             </div>
         </section>
