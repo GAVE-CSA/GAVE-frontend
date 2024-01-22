@@ -2,7 +2,6 @@
 layout: none
 ---
 
-
 {%- include gave-navbar.html -%}
 
 <style>
@@ -107,7 +106,7 @@ layout: none
                 <p>
                     This webpage aims to teach people of all ages the importance of cybersecurity in our increasingly digital world. We hope to create an intuitive website for high schoolers to be educated and practice their knowledge with fun and interactive games! 
                 </p>
-                <button>Learn More</button>
+                <button>Explore</button>
             </div>
             <div class="image_container">
                 <img src="images/image1.png" alt="image1" width="100">
