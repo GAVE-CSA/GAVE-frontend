@@ -1,6 +1,6 @@
 ---
 layout: none
-permalink: /signup
+permalink: /login
 ---
 
 {%- include gave-navbar.html -%}
@@ -11,6 +11,13 @@ permalink: /signup
     justify-content: center;
     align-items: center;
     color: black;
+    
+    .card2 {
+        width: 300px;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
     
     .card {
         width: 300px;
@@ -31,7 +38,7 @@ permalink: /signup
     }
 }
 
-.signUpButton {
+.logInButton {
     padding: .5rem 2rem;
     color: var(--white) !important;
     background-color: var(--primary-color);
@@ -39,30 +46,24 @@ permalink: /signup
     border: none;
 }
 
-.signUpButton:hover {
+.logInButton:hover {
     background-color: var(--primary-color-dark);
 }
 </style>
 
-<br>
 
 <div class="container">
     <div class="card">
-        <h3>Sign-Up</h3>
-        <div class="Name">
-            <input id="signUpNameInput" class="input" placeholder="Name">
-        </div>
+        <h3>Login</h3>
         <div class="Email">
-            <input id="signUpEmailInput" class="input" placeholder="Email">
+            <input id="logInEmailInput" class="input" placeholder="Email">
         </div>
         <div class="Password">
-            <input id="signUpPasswordInput" type="password" class="input" placeholder="Password">
+            <input id="logInPasswordInput" class="input" placeholder="Password">
         </div>
-        <div class="Dob">
-            <input id="signUpDobInput" class="input" placeholder="Date of birth (MM-DD-YYYY)">
-        </div>
+        <a href="/GAVE-frontend/signup">No account? Sign up here!<a>
+        <br>
+        <br>
         <div class="Buttons">
-            <button class="signUpButton" onclick="signup_user()">Sign Up</button>
+            <button class="logInButton" onclick="login_user()">Login</button>
         </div>
-    </div>
-</div>
