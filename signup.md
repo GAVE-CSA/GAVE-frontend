@@ -66,3 +66,37 @@ permalink: /signup
         </div>
     </div>
 </div>
+
+<script>
+function signup_user() {
+        var requestOptions = {
+            method: 'POST',
+            mode: 'cors',
+            cache: 'no-cache'
+        };
+
+        let fetchName = document.getElementById("signUpNameInput").value;
+        let fetchEmail = document.getElementById("signUpEmailInput").value;
+        let fetchPassword = document.getElementById("signUpPasswordInput").value;
+        let fetchDob = document.getElementById("signUpDobInput").value;
+
+        let requestURL = `http://localhost:8085/api/person/post?email=${fetchEmail}&password=${fetchPassword}&name=${fetchName}&dob=${fetchDob}`;
+        console.log(requestURL)
+
+        fetch(requestURL, requestOptions)
+        .then(response => {
+                if (!response.ok) {
+                    return response.text().then(errorMsg => {
+                        alert('Error: ' + errorMsg);
+                    });
+                }
+                // Success!!!
+                alert("Signup Complete");
+                location.reload();
+                // Redirect to Database location
+            })
+            .catch(error => {
+                alert('An unexpected error occurred: ' + error.message);
+            });
+    }
+</script>
