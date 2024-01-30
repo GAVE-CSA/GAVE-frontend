@@ -67,3 +67,61 @@ permalink: /login
         <div class="Buttons">
             <button class="logInButton" onclick="login_user()">Login</button>
         </div>
+
+<script>
+    function login_user() {
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+
+        var raw = JSON.stringify({
+            "email": document.getElementById("logInEmailInput").value,
+            "password": document.getElementById("logInPasswordInput").value
+
+            // For quick testing
+            //"email": "toby@gmail.com",
+            //"password": "123Toby!"
+        });
+        console.log(raw);
+
+        var requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            credentials: 'include',  // Include this line for cross-origin requests with credentials
+            body: raw,
+            redirect: 'follow'
+        };
+
+        fetch("http://localhost:8085/authenticate", requestOptions)
+        .then(response => {
+            if (!response.ok) {
+                const errorMsg = 'Login error: ' + response.status;
+                console.log(errorMsg);
+
+                switch (response.status) {
+                    case 401:
+                        alert("Incorrect username or password");
+                        break;
+                    case 403:
+                        alert("Access forbidden. You do not have permission to access this resource.");
+                        break;
+                    case 404:
+                        alert("User not found. Please check your credentials.");
+                        break;
+                    // Add more cases for other status codes as needed
+                    default:
+                        alert("Login failed. Please try again later.");
+                }
+
+                return Promise.reject('Login failed');
+            }
+            return response.text()
+        })
+        .then(result => {
+            console.log(result);
+            window.location.href = "http://127.0.0.1:4000/GAVE-frontend/success";
+        })
+        .catch(error => console.error('Error during login:', error));
+
+    }
+
+</script>
