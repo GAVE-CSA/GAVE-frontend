@@ -91,8 +91,8 @@ function signup_user() {
                     });
                 }
                 // Success!!!
-                alert("Signup Complete");
-                location.reload();
+                alert("Signup Complete, proceed to login");
+                window.location.href = "http://127.0.0.1:4000/GAVE-frontend/login";
                 // Redirect to Database location
             })
             .catch(error => {
