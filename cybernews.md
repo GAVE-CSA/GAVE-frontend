@@ -123,7 +123,23 @@ permalink: /cybernews
     </div>
   </div>
 
-  <!-- Add more cards for additional articles -->
+  <!-- 
+  1. Run each response through chat to get 
+  - date: last_modified 
+  - description 
+  - severity 
+  - impact 
+  & generate
+  - category
+  - article_content: elaboration on description 
+  - title 
+  2. save all this data in database 
+  3. display to frontend 
+  - preview: title, date, category, description 
+  - actual articlew: title, date, category, severity, impact, article_content
+  4. filter 
+  - drop down menu by category 
+  -->
 
 </div>
 
@@ -135,7 +151,7 @@ permalink: /cybernews
 
     // Implement your filtering logic here (e.g., show/hide cards based on filters)
     // For simplicity, the code below just logs the values, adjust as needed
-    console.log("Category Filter:", categoryFilter);
+    console.log("Category Filter:", categoryFilter); 
     console.log("Date Filter:", dateFilter);
   }
 </script>
