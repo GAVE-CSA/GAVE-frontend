@@ -92,6 +92,12 @@ layout: none
     .image_container img:nth-child(1){
         transform: translateY(-70px);
     }
+
+    .explore-btn {
+        text-decoration: none;
+        color: white;
+    }
+    
 </style>
 
 <html>
@@ -106,7 +112,7 @@ layout: none
                 <p>
                     This webpage aims to teach people of all ages the importance of cybersecurity in our increasingly digital world. We hope to create an intuitive website for high schoolers to be educated and practice their knowledge with fun and interactive games! 
                 </p>
-                <button>Explore</button>
+                <button><a class="explore-btn" href="{{ site.baseurl }}/signup">Explore</a></button>
             </div>
             <div class="image_container">
                 <img src="images/image1.png" alt="image1" width="100">

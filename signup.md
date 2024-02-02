@@ -80,7 +80,7 @@ function signup_user() {
         let fetchPassword = document.getElementById("signUpPasswordInput").value;
         let fetchDob = document.getElementById("signUpDobInput").value;
 
-        let requestURL = `http://localhost:8085/api/person/post?email=${fetchEmail}&password=${fetchPassword}&name=${fetchName}&dob=${fetchDob}`;
+        let requestURL = `http://localhost:8013/api/person/post?email=${fetchEmail}&password=${fetchPassword}&name=${fetchName}&dob=${fetchDob}`;
         console.log(requestURL)
 
         fetch(requestURL, requestOptions)
@@ -92,7 +92,7 @@ function signup_user() {
                 }
                 // Success!!!
                 alert("Signup Complete, proceed to login");
-                window.location.href = "http://127.0.0.1:4000/GAVE-frontend/login";
+                window.location.href = "{{ site.baseurl }}/login";
                 // Redirect to Database location
             })
             .catch(error => {

@@ -59,9 +59,9 @@ permalink: /login
             <input id="logInEmailInput" class="input" placeholder="Email">
         </div>
         <div class="Password">
-            <input id="logInPasswordInput" class="input" placeholder="Password">
+            <input type="password" id="logInPasswordInput" class="input" placeholder="Password">
         </div>
-        <a href="/GAVE-frontend/signup">No account? Sign up here!<a>
+        <a href="{{ site.baseurl }}/signup">No account? Sign up here!<a>
         <br>
         <br>
         <div class="Buttons">
@@ -91,7 +91,7 @@ permalink: /login
             redirect: 'follow'
         };
 
-        fetch("http://localhost:8085/authenticate", requestOptions)
+        fetch("http://localhost:8013/authenticate", requestOptions)
         .then(response => {
             if (!response.ok) {
                 const errorMsg = 'Login error: ' + response.status;
@@ -118,7 +118,7 @@ permalink: /login
         })
         .then(result => {
             console.log(result);
-            window.location.href = "http://127.0.0.1:4000/GAVE-frontend/success";
+            window.location.href = "{{ site.baseurl }}/success";
         })
         .catch(error => console.error('Error during login:', error));
 
