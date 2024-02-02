@@ -108,8 +108,13 @@ permalink: /cybernews
 <div class="container">
 
   <div class="filters">
-    <input type="text" class="filter-input" id="categoryFilter" placeholder="Filter by Category">
-    <input type="date" class="filter-input" id="dateFilter">
+    <select class="filter-input" id="categoryFilter">
+      <option value="">Select Category</option>
+      <option value="Command_Execution">Command Execution</option>
+      <option value="Buffer_Overflow">Buffer Overflow</option>
+      <option value="Privilege_Escalation">Privilege Escalation</option>
+      <option value="Information_Disclosure">Information Disclosure</option>
+    </select>
     <button class="apply-filters-btn" onclick="applyFilters()">Apply Filters</button>
   </div>
 
@@ -123,7 +128,24 @@ permalink: /cybernews
     </div>
   </div>
 
-  <!-- 
+</div>
+
+<script>
+  function applyFilters() {
+    // Get values from the dropdown menu
+    var categoryFilter = document.getElementById("categoryFilter").value;
+
+    // Implement your filtering logic here (e.g., show/hide cards based on filters)
+    // For simplicity, the code below just logs the values, adjust as needed
+    console.log("Category Filter:", categoryFilter); 
+  }
+</script>
+
+</body>
+</html>
+
+
+<!-- 
   1. Run each response through chat to get 
   - date: last_modified 
   - description 
@@ -135,26 +157,8 @@ permalink: /cybernews
   - title 
   2. save all this data in database 
   3. display to frontend 
-  - preview: title, date, category, description 
-  - actual articlew: title, date, category, severity, impact, article_content
+  - preview: image(?), title, date, category, description
+  - actual article: title, date, category, severity, impact, article_content
   4. filter 
   - drop down menu by category 
   -->
-
-</div>
-
-<script>
-  function applyFilters() {
-    // Get values from input fields
-    var categoryFilter = document.getElementById("categoryFilter").value;
-    var dateFilter = document.getElementById("dateFilter").value;
-
-    // Implement your filtering logic here (e.g., show/hide cards based on filters)
-    // For simplicity, the code below just logs the values, adjust as needed
-    console.log("Category Filter:", categoryFilter); 
-    console.log("Date Filter:", dateFilter);
-  }
-</script>
-
-</body>
-</html>
