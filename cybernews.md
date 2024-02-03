@@ -5,7 +5,126 @@ permalink: /cybernews
 
 {%- include gave-navbar.html -%}
 
+<!-- 
+  JS frontend
+  - call the news api (store in frontend) - want the ID, date (last_modified), description, severity, and impact 
+  - call chat (generate category, elaboration on description (article_content))
+  - run the news response through chat 
+  - end product: table (ID, category, date, article_content, severity, impact)
+  - drop down menu by category 
+
+  Java backend
+  - apicontroller (gets request from server & forward it to request generator): chat generated response 
+  - request generator
+  - applications.properties include the key  
+--> 
+
 <html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Educate yourself in cybernews!</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        #generateButton {
+            margin-top: 20px;
+        }
+
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Educate yourself in cybernews!</h1>
+
+        <button id="generateButton">Generate</button>
+
+        <select id="vulnerabilityCategory">
+            <option value="">Select Category</option>
+            <option value="Command_Execution">Command Execution</option>
+            <option value="Buffer_Overflow">Buffer Overflow</option>
+            <option value="Privilege_Escalation">Privilege Escalation</option>
+            <option value="Information_Disclosure">Information Disclosure</option>
+        </select>
+
+        <table id="vulnerabilityTable">
+            <thead>
+                <tr>
+                    <th>Vulnerability ID</th>
+                    <th>Category</th>
+                    <th>Date</th>
+                    <th>Article Content</th>
+                    <th>Severity</th>
+                    <th>Impact</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Table rows will be added dynamically from the backend API -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        // Replace the following code with actual API calls to fetch data
+        const backendData = [
+            { id: 1, category: "Command_Execution", date: "2024-02-02", content: "Sample content", severity: "High", impact: "Critical" },
+            // Add more data as needed
+        ];
+
+        const tableBody = document.querySelector('#vulnerabilityTable tbody');
+
+        // Populate the table with data from the backend
+        backendData.forEach(vulnerability => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${vulnerability.id}</td>
+                <td>${vulnerability.category}</td>
+                <td>${vulnerability.date}</td>
+                <td>${vulnerability.content}</td>
+                <td>${vulnerability.severity}</td>
+                <td>${vulnerability.impact}</td>
+            `;
+            tableBody.appendChild(row);
+        });
+    </script>
+</body>
+</html>
+
+
+<!-- <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -143,22 +262,7 @@ permalink: /cybernews
 
 </body>
 </html>
+ -->
 
 
-<!-- 
-  1. Run each response through chat to get 
-  - date: last_modified 
-  - description 
-  - severity 
-  - impact 
-  & generate
-  - category
-  - article_content: elaboration on description 
-  - title 
-  2. save all this data in database 
-  3. display to frontend 
-  - preview: image(?), title, date, category, description
-  - actual article: title, date, category, severity, impact, article_content
-  4. filter 
-  - drop down menu by category 
-  -->
+  
