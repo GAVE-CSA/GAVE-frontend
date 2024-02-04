@@ -5,21 +5,65 @@ permalink: /cybernews
 
 {%- include gave-navbar.html -%}
 
-<!-- 
-  JS frontend
-  - call the news api (store in frontend) - want the ID, date (last_modified), description, severity, and impact 
-  - call chat (generate category, elaboration on description (article_content))
-  - run the news response through chat 
-  - end product: table (ID, category, date, article_content, severity, impact)
-  - drop down menu by category 
-
-  Java backend
-  - apicontroller (gets request from server & forward it to request generator): chat generated response 
-  - request generator
-  - applications.properties include the key  
---> 
-
 <html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Network Security Education</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+    <h1>Educate yourself on configuration standards to minimize network-based attacks and learn about vulnerability patching!</h1>
+    
+    <section>
+        <h2>What are configuration standards?</h2>
+        <p>Think of configuration standards like recipes in a cookbook. Each recipe ensures that the dish is prepared in the best possible way, just as configuration standards ensure the optimal setup of a system for security and efficiency.</p>
+    </section>
+
+    <div id="filter">
+        <select id="categorySelect">
+            <option value="ubuntu">Ubuntu</option>
+            <option value="windows10">Microsoft Windows 10</option>
+            <option value="server2012DC">Server 2012 Domain Controller</option>
+            <option value="server2012R2DC">Server 2012/2012 R2 Domain Controller</option>
+            <option value="word2016">Microsoft Word 2016</option>
+            <option value="windowsServer2022">Microsoft Windows Server 2022</option>
+            <option value="mongoDB">MongoDB Enterprise Advanced 4.x</option>
+            <option value="chrome">Google Chrome Browser</option>
+            <option value="firefox">Mozilla Firefox</option>
+        </select>
+        <button id="submitFilter">Submit</button>
+    </div>
+
+    <input type="text" id="searchBox" placeholder="Search vulnerabilities...">
+    
+    <table id="vulnerabilityTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Severity</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>IA Controls</th>
+                <th>Rule ID</th>
+                <th>Fix ID</th>
+                <th>Fix Text</th>
+                <th>Check ID</th>
+                <th>Check Text</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Data rows will be inserted here -->
+        </tbody>
+    </table>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+
+<!-- <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -92,7 +136,7 @@ permalink: /cybernews
                 </tr>
             </thead>
             <tbody>
-                <!-- Table rows will be added dynamically from the backend API -->
+                Table rows will be added dynamically from the backend API
             </tbody>
         </table>
     </div>
@@ -121,7 +165,7 @@ permalink: /cybernews
         });
     </script>
 </body>
-</html>
+</html> -->
 
 
 <!-- <html lang="en">
