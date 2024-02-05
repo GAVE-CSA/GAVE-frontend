@@ -3,13 +3,30 @@ layout: none
 permalink: /cybernews
 ---
 
-# Vulnerability Runtime
+{%- include gave-navbar.html -%}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Network Security Education</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+    <h1>Educate yourself on configuration standards to minimize network-based attacks and learn about vulnerability patching!</h1>
+
+    <h2> What are configuration standards?</h2>
+    <p>Configuration standards are predefined guidelines and specifications for setting up and managing systems, software, or hardware components in a consistent manner. They are important as they ensure uniformity, reliability, and compatibility, making it easier to maintain, troubleshoot, and secure systems while minimizing errors and enhancing overall efficiency.</p>
+
+</body>
+</html>
+
 <button id="fetchButton">Fetch Data</button>
 <div id="result"></div>
 
 <script>
     document.getElementById('fetchButton').addEventListener('click', function() {
-        const baseURL = "https://gave.stu.nighthawkcodingsociety.com/api/vulnerability/software";
+        const baseURL = "https://gave.stu.nighthawkcodingsociety.com/api/vulnerability/software"; 
         const category = "ubu20"; // Replace with the actual course value
         const url = `${baseURL}/${category}`;
         fetch(url, {
