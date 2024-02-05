@@ -9,7 +9,7 @@ permalink: /cybernews
 
 <script>
     document.getElementById('fetchButton').addEventListener('click', function() {
-        const baseURL = "http://localhost:8013/api/vulnerability/software";
+        const baseURL = "https://gave.stu.nighthawkcodingsociety.com/api/vulnerability/software";
         const category = "ubu20"; // Replace with the actual course value
         const url = `${baseURL}/${category}`;
         fetch(url, {
