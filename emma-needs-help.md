@@ -28,7 +28,7 @@ permalink: /cybernews
             // Create a table
             let table = "<table border='1'><tr><th>ID</th><th>Severity</th><th>Title</th><th>Description</th><th>IA Controls</th><th>Rule ID</th><th>Fix ID</th><th>Fix Text</th><th>Check ID</th><th>Check Text</th></tr>";
             
-            // Insert data into the table
+            // Insert data into the table!
             data.forEach(item => {
                 table += `<tr>
                     <td>${item.id}</td>
