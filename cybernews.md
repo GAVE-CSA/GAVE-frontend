@@ -1,6 +1,6 @@
 ---
 layout: none
-permalink: /cybernews
+permalink: /emmaisbad
 ---
 
 {%- include gave-navbar.html -%}
@@ -17,11 +17,14 @@ permalink: /cybernews
     
     <section>
         <h2>What are configuration standards?</h2>
-        <p>Think of configuration standards like recipes in a cookbook. Each recipe ensures that the dish is prepared in the best possible way, just as configuration standards ensure the optimal setup of a system for security and efficiency.</p>
+        <p>Imagine you're building a sandwich. Each ingredient has a specific place and order – bread, lettuce, tomato, cheese, and so on. Now, let's say you share this sandwich recipe with your friends. The specific arrangement and types of ingredients represent your "configuration standards" for making the perfect sandwich.
+        
+        In a similar way, configuration standards in technology or any system are like a set of rules or guidelines that define how different components or settings should be arranged and interact. These standards help maintain consistency, ensure things work smoothly together, and make it easier for different people to understand and work with the system. Just like your friends following the sandwich recipe, anyone working with the system follows these configuration standards to ensure everything functions as intended</p>
     </section>
 
     <div id="filter">
         <select id="categorySelect">
+            <option value="select">Select your operating system</option>
             <option value="ubuntu">Ubuntu</option>
             <option value="windows10">Microsoft Windows 10</option>
             <option value="server2012DC">Server 2012 Domain Controller</option>
