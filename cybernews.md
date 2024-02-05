@@ -15,13 +15,6 @@ permalink: /emmaisbad
 <body>
     <h1>Educate yourself on configuration standards to minimize network-based attacks and learn about vulnerability patching!</h1>
     
-    <section>
-        <h2>What are configuration standards?</h2>
-        <p>Imagine you're building a sandwich. Each ingredient has a specific place and order – bread, lettuce, tomato, cheese, and so on. Now, let's say you share this sandwich recipe with your friends. The specific arrangement and types of ingredients represent your "configuration standards" for making the perfect sandwich.
-        
-        In a similar way, configuration standards in technology or any system are like a set of rules or guidelines that define how different components or settings should be arranged and interact. These standards help maintain consistency, ensure things work smoothly together, and make it easier for different people to understand and work with the system. Just like your friends following the sandwich recipe, anyone working with the system follows these configuration standards to ensure everything functions as intended</p>
-    </section>
-
     <div id="filter">
         <select id="categorySelect">
             <option value="select">Select your operating system</option>
