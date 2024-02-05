@@ -5,34 +5,37 @@ body {
 h1 {
     color: navy;
     text-align: center;
+    margin-top: 50px;
 }
 
 section {
-    margin: 20px;
-    padding: 10px;
-    background-color: #f0f0f0;
+    margin: 40px auto; /* Center the section on the page */
+    padding: 30px;
     border-radius: 5px;
+    max-width: 83%;
 }
 
 #filter {
     display: flex;
     justify-content: center;
-    margin: 20px;
+    margin: 20px auto; /* Center the filter on the page */
 }
 
 #searchBox {
     margin: 20px;
+    margin-left: 195px; 
     padding: 10px;
     width: 80%;
     font-size: 1em;
 }
 
-table {
-    width: 100%;
+#vulnerabilityTable {
+    width: 80%;
+    margin: 0 auto; /* Center the table on the page */
     border-collapse: collapse;
 }
 
-table, th, td {
+#vulnerabilityTable, th, td {
     border: 1px solid black;
 }
 

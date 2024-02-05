@@ -12,13 +12,21 @@ document.getElementById('submitFilter').addEventListener('click', function() {
             row.style.display = text.includes(searchValue) ? "" : "none";
         });
     });
-    
+
     function fetchData(category) {
-        let apiUrl = `http://localhost:8013/api/vulnerability/software/ubu20`;
-        fetch(apiUrl)
-            .then(response => response.json())
-            .then(data => populateTable(data))
-            .catch(error => console.error('Error:', error));
+        let apiUrl = `http://localhost:8013/api/vulnerability/software/ubu20`;
+        fetch(apiUrl)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => populateTable(data))
+            .catch(error => {
+                console.error('Error:', error);
+                // Handle the error, e.g., display a message to the user or log it
+            });
     }
     
     function populateTable(data) {
@@ -32,7 +40,7 @@ document.getElementById('submitFilter').addEventListener('click', function() {
                 <td>${item.title}</td>
                 <td>${item.description}</td>
                 <td>${item.iacontrols}</td>
-                <td>${item.ruleID}</td>
+                <td>${item.ruleid}</td>
                 <td>${item.fixid}</td>
                 <td>${item.fixtext}</td>
                 <td>${item.checkid}</td>
