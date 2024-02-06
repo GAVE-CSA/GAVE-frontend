@@ -32,7 +32,7 @@ permalink: /cybernews
             data.forEach(item => {
                 table += `<tr>
                     <td>${item.id}</td>
-                    <td>${item.question}</td>
+                    <td>${item.severity}</td>
                     <td>${item.answer1}</td>
                     <td>${item.answer2}</td>
                     <td>${item.answer3}</td>
