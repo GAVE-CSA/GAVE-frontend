@@ -26,21 +26,21 @@ permalink: /cybernews
         })
         .then(data => {
             // Create a table
-            let table = "<table border='1'><tr><th>ID</th><th>Question</th><th>Answer 1</th><th>Answer 2</th><th>Answer 3</th><th>Answer 4</th><th>Correct Answer</th><th>Difficulty</th><th>Unit</th><th>Points</th></tr>";
+            let table = "<table border='1'><tr><th>ID</th><th>Title</th><th>Severity</th><th>Description</th><th>IA Controls</th><th>Rule ID</th><th>Fix ID</th><th>Fix Text</th><th>Check ID</th><th>Check Text</th></tr>";
             
             // Insert data into the table
             data.forEach(item => {
                 table += `<tr>
                     <td>${item.id}</td>
+                    <td>${item.title}</td>
                     <td>${item.severity}</td>
-                    <td>${item.answer1}</td>
-                    <td>${item.answer2}</td>
-                    <td>${item.answer3}</td>
-                    <td>${item.answer4}</td>
-                    <td>${item.correctAnswer}</td>
-                    <td>${item.difficulty}</td>
-                    <td>${item.unit}</td>
-                    <td>${item.points}</td>
+                    <td>${item.description}</td>
+                    <td>${item.iacontrols}</td>
+                    <td>${item.ruleID}</td>
+                    <td>${item.fixid}</td>
+                    <td>${item.fixtext}</td>
+                    <td>${item.checkid}</td>
+                    <td>${item.checktext}</td>
                 </tr>`;
             });
 
