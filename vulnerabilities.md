@@ -24,11 +24,15 @@ permalink: /cybernews
 <button id="fetchButton">Fetch Data</button>
 <div id="result"></div>
 
+# Question Runtime
+<button id="fetchButton">Fetch Data</button>
+<div id="result"></div>
+
 <script>
     document.getElementById('fetchButton').addEventListener('click', function() {
-        const baseURL = "https://gave.stu.nighthawkcodingsociety.com/api/questions/course"; 
-        const category = "ubu20"; // Replace with the actual course value
-        const url = `${baseURL}/${category}`;
+        const baseURL = "https://gave.stu.nighthawkcodingsociety.com/api/questions/course";
+        const course = "ubu20"; // Replace with the actual course value
+        const url = `${baseURL}/${course}`;
         fetch(url, {
             method: 'GET',
             headers: {
@@ -43,9 +47,9 @@ permalink: /cybernews
         })
         .then(data => {
             // Create a table
-            let table = "<table border='1'><tr><th>ID</th><th>Severity</th><th>Title</th><th>Description</th><th>IA Controls</th><th>Rule ID</th><th>Fix ID</th><th>Fix Text</th><th>Check ID</th><th>Check Text</th></tr>";
+            let table = "<table border='1'><tr><th>ID</th><th>Question</th><th>Answer 1</th><th>Answer 2</th><th>Answer 3</th><th>Answer 4</th><th>Correct Answer</th><th>Difficulty</th><th>Unit</th><th>Points</th></tr>";
             
-            // Insert data into the table!
+            // Insert data into the table
             data.forEach(item => {
                 table += `<tr>
                     <td>${item.id}</td>
@@ -53,7 +57,7 @@ permalink: /cybernews
                     <td>${item.title}</td>
                     <td>${item.description}</td>
                     <td>${item.iacontrols}</td>
-                    <td>${item.ruleid}</td>
+                    <td>${item.ruleID}</td>
                     <td>${item.fixid}</td>
                     <td>${item.fixtext}</td>
                     <td>${item.checkid}</td>
@@ -72,6 +76,7 @@ permalink: /cybernews
         });
     });
 </script>
+
 
 
 
