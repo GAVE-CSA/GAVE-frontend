@@ -29,7 +29,7 @@ permalink: /cybernews
         const baseURL = "https://gave.stu.nighthawkcodingsociety.com/api/vulnerability/software"; 
         const category = "ubu20"; // Replace with the actual course value
         const url = `${baseURL}/${category}`;
-        fetch(url, {
+        fetch("https://gave.stu.nighthawkcodingsociety.com/api/vulnerability/software/ubu20", {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
