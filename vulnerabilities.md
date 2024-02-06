@@ -26,10 +26,10 @@ permalink: /cybernews
 
 <script>
     document.getElementById('fetchButton').addEventListener('click', function() {
-        const baseURL = "https://gave.stu.nighthawkcodingsociety.com/api/vulnerability/software"; 
+        const baseURL = "https://gave.stu.nighthawkcodingsociety.com/api/questions/course"; 
         const category = "ubu20"; // Replace with the actual course value
         const url = `${baseURL}/${category}`;
-        fetch("https://gave.stu.nighthawkcodingsociety.com/api/vulnerability/software/ubu20", {
+        fetch(url, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
