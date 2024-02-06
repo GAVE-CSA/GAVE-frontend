@@ -3,9 +3,13 @@ layout: none
 permalink: /cybernews
 ---
 
-# Question Runtime
+{%- include gave-navbar.html -%}
+
+# Vulnerability Runtime
 <button id="fetchButton">Fetch Data</button>
 <div id="result"></div>
+
+
 
 <script>
     document.getElementById('fetchButton').addEventListener('click', function() {
