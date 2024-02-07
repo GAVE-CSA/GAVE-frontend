@@ -46,8 +46,8 @@ permalink: /vulnerabilities
 <script>
     document.getElementById('fetchButton').addEventListener('click', function() {
         const baseURL = "https://gave.stu.nighthawkcodingsociety.com/api/vulnerability/software";
-        const course = "ubu20"; // Replace with the actual course value
-        const url = `${baseURL}/${course}`;
+        const category = "ubu20"; // Change this once add category filter
+        const url = `${baseURL}/${category}`;
 
         // Fetch data from API 
         fetch(url, {
