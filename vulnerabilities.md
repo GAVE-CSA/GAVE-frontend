@@ -19,9 +19,13 @@ permalink: /vulnerabilities
         }
         #result {
             max-width: 600px;
-            margin: 20px auto;
         }
-        #fetchButton, #osFilter, #osDropdown, #submitButton {
+        table {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        }
+        #fetchButton, #osFilter, #osDropdown {
             display: block;
             margin: 10px auto;
             padding: 10px 20px;
@@ -39,10 +43,6 @@ permalink: /vulnerabilities
         }
         #osDropdown {
             width: 150px;
-        }
-        #submitButton {
-            background-color: #27ae60;
-            color: white;
         }
     </style>
 </head>
