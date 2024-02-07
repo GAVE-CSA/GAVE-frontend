@@ -9,6 +9,10 @@ permalink: /vulnerabilities
 
 <head>
     <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+        }
         h1 {
             margin-top: 50px;
             text-align: center;
@@ -20,9 +24,8 @@ permalink: /vulnerabilities
             margin: 0 auto;
         }
         #fetchButton {
-            margin: 0 auto;
-            margin-top: 20px;
-            margin-bottom: 20px;
+            display: block;
+            margin: 20px auto;
             padding: 10px 20px;
             font-size: 16px;
             border: 2px solid black;
@@ -45,6 +48,8 @@ permalink: /vulnerabilities
         const baseURL = "https://gave.stu.nighthawkcodingsociety.com/api/vulnerability/software";
         const course = "ubu20"; // Replace with the actual course value
         const url = `${baseURL}/${course}`;
+
+        // Fetch data from API 
         fetch(url, {
             method: 'GET',
             headers: {
@@ -52,16 +57,18 @@ permalink: /vulnerabilities
             },
         })
         .then(response => {
+            // Check if the response from the server is successful
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
+            // Parse the response as JSON
             return response.json();
         })
         .then(data => {
-            // Create a table
+            // Create an HTML table header
             let table = "<table border='1'><tr><th>ID</th><th>Title</th><th>Severity</th><th>Description</th><th>Fix Text</th><th>Check Text</th></tr>";
             
-            // Insert data into the table
+            // Insert data from the API into the table rows
             data.forEach(item => {
                 table += `<tr>
                     <td>${item.id}</td>
@@ -73,11 +80,14 @@ permalink: /vulnerabilities
                 </tr>`;
             });
 
+            // Close the HTML table
             table += "</table>";
 
-            // Display the table
+            // Display the generated table in the 'result' element
             document.getElementById('result').innerHTML = table;
         })
+
+        // Log and display an error message if there is a problem with the fetch operation
         .catch(error => {
             console.error('There has been a problem with your fetch operation:', error);
             document.getElementById('result').textContent = 'Error: ' + error.message;
