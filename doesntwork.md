@@ -1,6 +1,6 @@
 ---
 layout: none
-permalink: /emmaisbad
+permalink: /doesntwork
 ---
 
 {%- include gave-navbar.html -%}
