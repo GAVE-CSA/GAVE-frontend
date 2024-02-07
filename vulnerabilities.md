@@ -18,9 +18,7 @@ permalink: /vulnerabilities
             text-align: center;
         }
         #result {
-            margin: 20px auto;
             max-width: 600px;
-            padding: 20px;
         }
         #fetchButton {
             display: block;
@@ -65,7 +63,7 @@ permalink: /vulnerabilities
         })
         .then(data => {
             // Create an HTML table header
-            let table = "<table border='1'><tr><th>ID</th><th>Title</th><th>Severity</th><th>Description</th><th>Fix Text</th><th>Check Text</th></tr>";
+            let table = "<table border='1' cellspacing='3'><tr><th>ID</th><th>Title</th><th>Severity</th><th>Description</th><th>Fix Text</th><th>Check Text</th></tr>";
             
             // Insert data from the API into the table rows
             data.forEach(item => {

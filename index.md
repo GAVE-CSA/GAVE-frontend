@@ -13,7 +13,7 @@ layout: none
         --secondary-color: #f9fafe;
         --text-color: #333333;
         --white: #ffffff;
-        --max-width: 1200px;
+        --max-width: 1400px;
     }
 
     .container {
