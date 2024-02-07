@@ -29,7 +29,7 @@ permalink: /password
 
 <style>
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Poppins", sans-serif;
     text-align: center;
     padding-top: 50px;
 }
