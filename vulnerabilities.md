@@ -9,22 +9,18 @@ permalink: /vulnerabilities
 
 <head>
     <style>
-        body {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            margin: 0;
-        }
         h1 {
             margin-top: 50px;
             text-align: center;
         }
         #result {
-            margin-left: 20px;
-            margin-right: 20px; 
+            /*margin-left: 20px;
+            margin-right: 20px; */
+            max-width: 92%; 
+            margin: 0 auto;
         }
         #fetchButton {
+            margin: 0 auto;
             margin-top: 20px;
             margin-bottom: 20px;
             padding: 10px 20px;
@@ -38,11 +34,9 @@ permalink: /vulnerabilities
     </style>
 </head>
 
-<body>
-    <h1>Vulnerability Runtime</h1>
-    <button id="fetchButton">Fetch Data</button>
-    <div id="result"></div>
-</body>
+<h1>Vulnerability Runtime</h1>
+<button id="fetchButton">Fetch Data</button>
+<div id="result"></div>
 
 </html>
 
