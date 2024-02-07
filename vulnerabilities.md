@@ -21,12 +21,19 @@ permalink: /vulnerabilities
             text-align: center;
         }
         #result {
-            width: 90%;
-            margin: 0 auto; /* Center the table */
+            margin-left: 20px;
+            margin-right: 20px; 
         }
         #fetchButton {
             margin-top: 20px;
             margin-bottom: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: 2px solid black;
+            background-color: purple;
+            color: white;
+            cursor: pointer;
+            font-family: "Poppins", sans-serif;
         }
     </style>
 </head>
