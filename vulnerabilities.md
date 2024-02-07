@@ -1,15 +1,43 @@
 ---
 layout: none
-permalink: /cybernews
+permalink: /vulnerabilities
 ---
 
 {%- include gave-navbar.html -%}
 
-# Vulnerability Runtime
-<button id="fetchButton">Fetch Data</button>
-<div id="result"></div>
+<html>
 
+<head>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+        }
+        h1 {
+            margin-top: 50px;
+            text-align: center;
+        }
+        #result {
+            width: 90%;
+            margin: 0 auto; /* Center the table */
+        }
+        #fetchButton {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
 
+<body>
+    <h1>Vulnerability Runtime</h1>
+    <button id="fetchButton">Fetch Data</button>
+    <div id="result"></div>
+</body>
+
+</html>
 
 <script>
     document.getElementById('fetchButton').addEventListener('click', function() {
@@ -30,7 +58,7 @@ permalink: /cybernews
         })
         .then(data => {
             // Create a table
-            let table = "<table border='1'><tr><th>ID</th><th>Title</th><th>Severity</th><th>Description</th><th>IA Controls</th><th>Rule ID</th><th>Fix ID</th><th>Fix Text</th><th>Check ID</th><th>Check Text</th></tr>";
+            let table = "<table border='1'><tr><th>ID</th><th>Title</th><th>Severity</th><th>Description</th><th>Fix Text</th><th>Check Text</th></tr>";
             
             // Insert data into the table
             data.forEach(item => {
@@ -39,11 +67,7 @@ permalink: /cybernews
                     <td>${item.title}</td>
                     <td>${item.severity}</td>
                     <td>${item.description}</td>
-                    <td>${item.iacontrols}</td>
-                    <td>${item.ruleID}</td>
-                    <td>${item.fixid}</td>
                     <td>${item.fixtext}</td>
-                    <td>${item.checkid}</td>
                     <td>${item.checktext}</td>
                 </tr>`;
             });
