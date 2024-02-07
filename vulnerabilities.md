@@ -18,10 +18,9 @@ permalink: /vulnerabilities
             text-align: center;
         }
         #result {
-            /*margin-left: 20px;
-            margin-right: 20px; */
-            max-width: 92%; 
-            margin: 0 auto;
+            margin: 20px auto;
+            max-width: 600px;
+            padding: 20px;
         }
         #fetchButton {
             display: block;
