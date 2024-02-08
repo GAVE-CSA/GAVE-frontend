@@ -139,4 +139,22 @@ li {
             stopTimer();
         }
     }
+
+    //add game session time to backend database 
+    var deployURL = "http://localhost:8013";
+    function updateTime() {
+        var gameId = 1;
+        fetch(deployURL + `/api/gamesession/${gameId}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                })
+                .then((response) => response.json())
+                .then((newGamesession) => { 
+                    
+                });
+    }
 </script>
+
+     
