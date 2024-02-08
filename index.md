@@ -97,7 +97,6 @@ layout: none
         text-decoration: none;
         color: white;
     }
-    
 </style>
 
 <html>
