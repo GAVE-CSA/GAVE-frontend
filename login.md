@@ -12,30 +12,30 @@ permalink: /login
     align-items: center;
     color: black;
     
-    .card2 {
-        width: 300px;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    }
-    
-    .card {
-        width: 300px;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-        animation: fade1 5s ease infinite; // change here
-    }
-    
-    h3 {
-        margin-bottom: 20px;
-    }
+.card2 {
+    width: 300px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
 
-    .input {
-        width: 100%;
-        padding: 10px;
-        margin-bottom: 10px;
-    }
+.card {
+    width: 300px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    animation: fade1 5s ease infinite; // change here
+}
+
+h3 {
+    margin-bottom: 20px;
+}
+
+.input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+}
 }
 
 .logInButton {
