@@ -5,81 +5,45 @@ permalink: /spotthediff
 
 {%- include gave-navbar.html -%}
 
-<html>
-<head>
-    <meta charset="utf-8" />
-    <title></title>
-</head>
-    <body>
-        <div id="container">
-            <h1 class="label">Find The Difference</h1>
-            <h3 id="status" style="text-align:center">Level 1</h3>
-            <div class="heading-container">
-                <h2 class="wrong">Wrong</h2>
-                <h2 class="correct">Correct</h2>
-            </div>
-			<div id="left"></div>
-            <div id="right"></div>
-        </div>
-        <script type="text/javascript" src="game.js"></script>
-    </body>
-</html>
-
-<style>
-    .label {
-        margin-top: 10px;
-        text-align: center; 
-        background-color: #5c48ee; 
-        color: #fff;
-        padding: 8px;
-        border-radius: 25px;
-    }
-
-    body {
-        margin: 0;
-    }
-
-    #container {
-        margin-left:250px;
-        width: 1040px;
-        height: 800px;
-    }
-    
-    .heading-container {
-        margin-top: 20px;
-        display: flex;
-        justify-content: space-between;
-    }
-
-    .wrong,
-    .correct {
-        flex: 1;
-        text-align: center;
-    }
-
-    #left {
-        width: 500px;
-        height: 500px;
-        margin-left: 65px;
-        position:absolute;
-        left:200px;
-        border: 3px solid violet;
-    }
-    #right {
-        width: 500px;
-        height: 500px;
-        position:absolute;
-        left:765px;
-        border: 3px solid violet;
-    }
-
-    .cube {
-        /*44px total*/
-        width: 40px;
-        height: 40px;
-        border: 2px solid black;
-        border-radius:50%;
-        position: absolute;
-        background: blue;
-    }
-</style>
+<form id="messageForm">
+    <label for="userMessage">User Message:</label>
+    <input type="text" id="userMessage" name="userMessage"><br><br>
+    <label for="systemMessage">System Message:</label>
+    <input type="text" id="systemMessage" name="systemMessage"><br><br>
+    <input type="submit" value="Send Message">
+</form>
+<!-- Place to display the response -->
+<div id="apiResponse"></div>
+<script>
+    // JavaScript to handle form submission
+    document.getElementById('messageForm').addEventListener('submit', function(e) {
+        e.preventDefault(); // Prevents default form submission behavior
+        // Get the input values from the form
+        var userMessage = document.getElementById('userMessage').value;
+        var systemMessage = document.getElementById('systemMessage').value;
+        // Construct the request payload
+        var data = {
+            "messages": [
+                {"role": "user", "content": userMessage},
+                {"role": "system", "content": systemMessage}
+            ]
+        };
+        // Send the POST request
+        fetch('http://localhost:8013/api/chat', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Success:', data);
+            // Display the response - example: get content of index 0
+            document.getElementById('apiResponse').innerText = data.choices[0].message.content;
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+    });
+</script>
