@@ -18,6 +18,7 @@ permalink: /vulnerabilities
             text-align: center;
         }
         #result {
+            padding: 50px;
             max-width: 600px;
         }
         table {
@@ -47,21 +48,17 @@ permalink: /vulnerabilities
     </style>
 </head>
 
-<!-- <h1>Vulnerability Runtime</h1>
-<button id="fetchButton">Fetch Data</button>
-<div id="result"></div> -->
-
 <body>
     <h1>Vulnerability Runtime</h1>
     <div id="osFilter">
-        <label for="osDropdown">Filter by OS:</label>
+        <label for="osDropdown">Select your operating system:</label>
         <select id="osDropdown">
             <option value="ubu20">Ubuntu</option>
             <option value="microsoft10">Microsoft Windows</option>
             <option value="googlechromebrowser">Google Chrome Browser</option>
             <option value="AppleMacOS13">Apple MacOS</option>
         </select>
-        <button id="fetchButton">Fetch Data</button>
+        <button id="fetchButton">Fetch Info</button>
     </div>
     <div id="result"></div>
 </body>
@@ -76,6 +73,7 @@ permalink: /vulnerabilities
         const category = osDropdown.options[osDropdown.selectedIndex].value;
         console.log(category)
         const url = `${baseURL}/${category}`;
+        console.log(url);
 
         // Fetch data from API 
         fetch(url, {
