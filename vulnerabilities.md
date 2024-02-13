@@ -26,7 +26,7 @@ permalink: /vulnerabilities
             z-index: 1;
             margin-bottom: 0px;
             left: 100%;
-            margin-left: -150px;
+            margin-left: -140spx;
             opacity: 0;
             transition: opacity 0.3s;
         }
@@ -44,13 +44,16 @@ permalink: /vulnerabilities
             text-align: center;
         }
         #result {
-            padding: 50px;
-            max-width: 600px;
+            padding: 20px;
         }
         table {
             margin: 0;
             padding: 0;
-            width: 100%;
+            font-size: 12.35px;
+            width: 50px;
+        }
+        td {
+            padding: 10px;
         }
         #fetchButton,
         #osFilter,
@@ -75,10 +78,6 @@ permalink: /vulnerabilities
         }
     </style>
 </head>
-
-<!-- <h1>Vulnerability Runtime</h1>
-<button id="fetchButton">Fetch Data</button>
-<div id="result"></div> -->
 
 <body>
     <h1>Vulnerability Runtime</h1>
@@ -175,7 +174,7 @@ permalink: /vulnerabilities
             // Create the tooltip text and append it to the tooltip container
             const tooltipText = document.createElement('span');
             tooltipText.className = 'tooltiptext';
-            tooltipText.textContent = 'Description of ID goes here.';
+            tooltipText.textContent = 'This is a unique alphanumeric code assigned to each security control. It provides a consistent way to identify and reference each control specific to the operating system!';
             tooltipContainer.appendChild(tooltipText);
 
             // Append the tooltip container to the ID cell
@@ -193,7 +192,7 @@ permalink: /vulnerabilities
             // Create the tooltip text and append it to the tooltip container
             const tooltipText = document.createElement('span');
             tooltipText.className = 'tooltiptext';
-            tooltipText.textContent = 'Description of title goes here.';
+            tooltipText.textContent = 'This column describes the security control in a concise manner.';
             tooltipContainer.appendChild(tooltipText);
 
             // Append the tooltip container to the title cell
@@ -211,7 +210,7 @@ permalink: /vulnerabilities
             // Create the tooltip text and append it to the tooltip container
             const tooltipText = document.createElement('span');
             tooltipText.className = 'tooltiptext';
-            tooltipText.textContent = 'Description of severity goes here.';
+            tooltipText.textContent = 'The level of risk for each security control is categorized into low, medium, and high. Factors that impact severity is ease of explotation & potential conquences like unauthorized access, data breaches, and system outrages';
             tooltipContainer.appendChild(tooltipText);
 
             // Append the tooltip container to the severity cell
@@ -229,7 +228,7 @@ permalink: /vulnerabilities
             // Create the tooltip text and append it to the tooltip container
             const tooltipText = document.createElement('span');
             tooltipText.className = 'tooltiptext';
-            tooltipText.textContent = 'Description of description goes here.';
+            tooltipText.textContent = 'Additional details on the security control & explaining the rationale of why this requirement is IMPORTANT in context of potential risks';
             tooltipContainer.appendChild(tooltipText);
 
             // Append the tooltip container to the description cell
@@ -247,7 +246,7 @@ permalink: /vulnerabilities
             // Create the tooltip text and append it to the tooltip container
             const tooltipText = document.createElement('span');
             tooltipText.className = 'tooltiptext';
-            tooltipText.textContent = 'description of fixText goes here.';
+            tooltipText.textContent = 'Details the steps or actions required to remediate or fix the security control!';
             tooltipContainer.appendChild(tooltipText);
 
             // Append the tooltip container to the fixText cell
@@ -265,7 +264,7 @@ permalink: /vulnerabilities
             // Create the tooltip text and append it to the tooltip container
             const tooltipText = document.createElement('span');
             tooltipText.className = 'tooltiptext';
-            tooltipText.textContent = 'description of checkText goes here.';
+            tooltipText.textContent = 'Specifies the criteria to verify whether the security control has been properly implemented';
             tooltipContainer.appendChild(tooltipText);
 
             // Append the tooltip container to the checkText cell
