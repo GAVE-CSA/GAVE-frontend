@@ -151,7 +151,7 @@ permalink: /password
         const lowercase = /[a-z]/.test(password);
         const digits = /[0-9]/.test(password);
         const specialChars = /\W/.test(password);
-        const commonPasswords = ["123", "456", "password", "admin", "qwerty", "abc123", "Hello", "hello"]; // Example common passwords
+        const commonPasswords = ["123", "456", "password", "admin", "qwerty", "abc123", "hello"]; // Example common passwords
 
         // increase - diversity and length
         if (length > 8) score += 1;
@@ -177,7 +177,7 @@ permalink: /password
         let timeToCrack = estimateCrackTime(entropy);
 
         // score to strength categories
-        let strength = ["Very Weak", "Weak", "Okay", "Medium" "Strong", "Very Strong"][score];
+        let strength = ["Very Weak", "Weak", "Fair", "Medium", "Strong", "Very Strong"][score];
         alert(score);
 
         return {strength, timeToCrack};
