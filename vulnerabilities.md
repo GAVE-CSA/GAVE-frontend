@@ -89,6 +89,13 @@ permalink: /vulnerabilities
             font-size: 16px;
             font-family: "Poppins", sans-serif;
         }
+        .button {
+            padding: .5rem 2rem;
+            color: var(--white) !important;
+            background-color: var(--primary-color);
+            border-radius: 5px;
+            border: none;
+        }
     </style>
 </head>
 
@@ -102,7 +109,7 @@ permalink: /vulnerabilities
             <option value="googlechromebrowser">Google Chrome Browser</option>
             <option value="AppleMacOS13">Apple MacOS</option>
         </select>
-        <button id="fetchButton">Fetch Info</button>
+        <button class="button" id="fetchButton">Fetch Info</button>
         <label id="securityControlsLabel">What security controls are you interested in?</label>
         <input type="text" id="searchInput" placeholder="Search...">
     </div>
