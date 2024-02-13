@@ -58,29 +58,10 @@ permalink: /profile
     fetchUserData();
   };
 
-//   function logout() {
-//     fetch('http://localhost:8013/api/person/logout', {
-//         method: 'POST',
-//         headers: {
-//             'Authorization': 'Bearer ' + localStorage.getItem('token'), // Assuming you store the token in localStorage
-//             'Content-Type': 'application/json',
-//         },
-//     })
-//     .then(response => {
-//         if (response.ok) {
-//             // Clear client-side data (e.g., remove the token from localStorage)
-//             localStorage.removeItem('token');
-//             console.log('Logout successful');
-//             window.location.reload();
-//             console.clear();
-//             document.getElementById("initName").innerHTML = null;
-//             document.getElementById("email").innerHTML = null;
-//         } else {
-//             console.error('Logout failed');
-//         }
-//     })
-//     .catch(error => console.error('Error during logout:', error));
-// }
+
+  // function deleteCookie(cookieName) {
+  //     document.cookie = cookieName + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+  // }
 
   function logout() {
       fetch('http://localhost:8013/api/person/logout', {
@@ -89,7 +70,8 @@ permalink: /profile
       })
       .then(response => {
         if (response.ok) {
-          // Clear client-side data (e.g., update UI, redirect, etc.)
+          // deleteCookie("jwt");
+       
           console.log('Logout successful');
           document.getElementById("initName").innerHTML = null;
           document.getElementById("email").innerHTML = null;
