@@ -48,6 +48,14 @@ permalink: /vulnerabilities
     </style>
 </head>
 
+<!-- <h1>Vulnerability Runtime</h1>
+<button id="fetchButton">Fetch Data</button>
+<div id="result"></div> -->
+
+<body>
+    <h1>Vulnerability Runtime</h1>
+    <div id="osFilter">
+        <label for="osDropdown">Filter by OS:</label>
 <body>
     <h1>Vulnerability Runtime</h1>
     <div id="osFilter">
@@ -58,6 +66,7 @@ permalink: /vulnerabilities
             <option value="googlechromebrowser">Google Chrome Browser</option>
             <option value="AppleMacOS13">Apple MacOS</option>
         </select>
+        <button id="fetchButton">Fetch Data</button>
         <button id="fetchButton">Fetch Info</button>
     </div>
     <div id="result"></div>
