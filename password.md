@@ -170,14 +170,15 @@ permalink: /password
         let entropy = length * Math.log2(charSetSize);
         
         // score based on entropy (based on zxcvbn, simplified)
-        if (entropy > 70) score = Math.min(score + 2, 5); // very strong
-        else if (entropy > 50) score = Math.min(score + 1, 4); // strong
+        if (entropy > 100) score = Math.min(score + 2, 5); // very strong
+        else if (entropy > 80) score = Math.min(score + 1, 4); // strong
 
         // est. crack time based on entropy (based on zxcvbn, simplified)
         let timeToCrack = estimateCrackTime(entropy);
 
         // score to strength categories
-        let strength = ["Very Weak", "Weak", "Fair", "Good", "Strong", "Very Strong"][score];
+        let strength = ["Very Weak", "Weak", "Okay", "Medium" "Strong", "Very Strong"][score];
+        alert(score);
 
         return {strength, timeToCrack};
     }
