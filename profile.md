@@ -50,32 +50,29 @@ permalink: /profile
 </div>
 
 <div class="center-horizontal">
-    <button class="button" onclick="logout()">Logout</button>
+      <button class="button" onclick="logout()">Logout</button>
 </div>
 
 <script>
     window.onload = function () {
     fetchUserData();
   };
-
-
-  // function deleteCookie(cookieName) {
-  //     document.cookie = cookieName + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-  // }
-
+  
   function logout() {
-      fetch('http://localhost:8013/api/person/logout', {
+      var requestOptions = {
         method: 'POST',
-        credentials: 'include',  // Include cookies in the request
-      })
+        mode: 'cors',
+        cache: 'default',
+        credentials: 'include',
+      }
+
+      fetch('http://localhost:8013/api/person/logout', requestOptions)
       .then(response => {
         if (response.ok) {
-          // deleteCookie("jwt");
-       
           console.log('Logout successful');
           document.getElementById("initName").innerHTML = null;
           document.getElementById("email").innerHTML = null;
-
+          // window.location.reload();
         } else {
           console.error('Logout failed');
         }
