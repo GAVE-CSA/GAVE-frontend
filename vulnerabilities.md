@@ -159,13 +159,17 @@ permalink: /vulnerabilities
             // Display the generated table in the 'result' element
             document.getElementById('result').innerHTML = table;
 
+            filterTableRows();
+
             // Add tooltips to the column
             addTooltipToIdColumn();
             
             document.getElementById('searchInput').style.display = 'inline-block';
             document.getElementById('securityControlsLabel').style.display = 'block';
-
-
+            
+            document.getElementById('searchInput').addEventListener('input', function() {
+                filterTableRows();
+               });
         })
 
         // Log and display an error message if there is a problem with the fetch operation
@@ -174,6 +178,37 @@ permalink: /vulnerabilities
             document.getElementById('result').textContent = 'Error: ' + error.message;
         });
     }
+
+    function filterTableRows() {
+    const searchInput = document.getElementById('searchInput');
+    const filterValue = searchInput.value.toUpperCase(); // Convert input to uppercase for case-insensitive comparison
+
+    const table = document.querySelector('table');
+    const rows = table.querySelectorAll('tr');
+
+    // Loop through all table rows and hide those that do not match the search input
+    for (let i = 1; i < rows.length; i++) { // Start from index 1 to skip the table header
+        const row = rows[i];
+        const cells = row.querySelectorAll('td');
+        let rowContainsSearchTerm = false;
+
+        // Check each cell in the row for a match
+        cells.forEach(cell => {
+            const cellText = cell.textContent || cell.innerText; // Get cell text content
+            if (cellText.toUpperCase().indexOf(filterValue) > -1) {
+                rowContainsSearchTerm = true;
+            }
+        });
+
+        // Show or hide the row based on whether it contains the search term
+        if (rowContainsSearchTerm) {
+            row.style.display = '';
+        } else {
+            row.style.display = 'none';
+        }
+    }
+}
+
 
     function addTooltipToIdColumn() {
         const idColumn = document.querySelectorAll('td:first-child');
