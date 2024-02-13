@@ -83,10 +83,6 @@ permalink: /vulnerabilities
 <body>
     <h1>Vulnerability Runtime</h1>
     <div id="osFilter">
-        <label for="osDropdown">Filter by OS:</label>
-<body>
-    <h1>Vulnerability Runtime</h1>
-    <div id="osFilter">
         <label for="osDropdown">Select your operating system:</label>
         <select id="osDropdown">
             <option value="ubu20">Ubuntu</option>
@@ -94,7 +90,6 @@ permalink: /vulnerabilities
             <option value="googlechromebrowser">Google Chrome Browser</option>
             <option value="AppleMacOS13">Apple MacOS</option>
         </select>
-        <button id="fetchButton">Fetch Data</button>
         <button id="fetchButton">Fetch Info</button>
     </div>
     <div id="result"></div>
@@ -103,9 +98,9 @@ permalink: /vulnerabilities
 </html>
 
 <script>
-    document.getElementById('fetchButton').addEventListener('click', fetchData);
+    document.getElementById('fetchButton').addEventListener('click', fetchInfo);
 
-    function fetchData() {
+    function fetchInfo() {
         const baseURL = "http://localhost:8013/api/vulnerability/software";
         const osDropdown = document.getElementById('osDropdown');
         const category = osDropdown.options[osDropdown.selectedIndex].value;
@@ -150,7 +145,7 @@ permalink: /vulnerabilities
             // Display the generated table in the 'result' element
             document.getElementById('result').innerHTML = table;
 
-            // Add tooltips to the ID column
+            // Add tooltips to the column
             addTooltipToIdColumn();
         })
 
@@ -168,8 +163,6 @@ permalink: /vulnerabilities
         const descriptionColumn = document.querySelectorAll('td:nth-child(4)');
         const fixTextColumn = document.querySelectorAll('td:nth-child(5)');
         const checkTextColumn = document.querySelectorAll('td:nth-child(6)');
-
-
 
         idColumn.forEach((idCell) => {
             // Wrap the content of the ID cell with a tooltip container
