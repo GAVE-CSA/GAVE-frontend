@@ -26,7 +26,7 @@ permalink: /vulnerabilities
             z-index: 1;
             margin-bottom: 0px;
             left: 100%;
-            margin-left: -140spx;
+            margin-left: -140px;
             opacity: 0;
             transition: opacity 0.3s;
         }
@@ -34,8 +34,7 @@ permalink: /vulnerabilities
             visibility: visible;
             opacity: 1;
         }
-        body,
-        html {
+        body {
             margin: 0;
             padding: 0;
         }
@@ -62,7 +61,6 @@ permalink: /vulnerabilities
             margin: 10px auto;
             padding: 10px 20px;
             font-size: 16px;
-            border: 2px solid black;
             cursor: pointer;
             font-family: "Poppins", sans-serif;
         }
@@ -75,6 +73,21 @@ permalink: /vulnerabilities
         }
         #osDropdown {
             width: 150px;
+        }
+        #searchInput {
+            display: none; /* Initially hide search bar */
+            padding: 8px;
+            margin-right: 10px;
+            font-size: 14px;
+            border: 2px solid black;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+        #securityControlsLabel {
+            display: none;  /* Initially hide the label */
+            margin-top: 20px;
+            font-size: 16px;
+            font-family: "Poppins", sans-serif;
         }
     </style>
 </head>
@@ -90,6 +103,8 @@ permalink: /vulnerabilities
             <option value="AppleMacOS13">Apple MacOS</option>
         </select>
         <button id="fetchButton">Fetch Info</button>
+        <label id="securityControlsLabel">What security controls are you interested in?</label>
+        <input type="text" id="searchInput" placeholder="Search...">
     </div>
     <div id="result"></div>
 </body>
@@ -146,6 +161,11 @@ permalink: /vulnerabilities
 
             // Add tooltips to the column
             addTooltipToIdColumn();
+            
+            document.getElementById('searchInput').style.display = 'inline-block';
+            document.getElementById('securityControlsLabel').style.display = 'block';
+
+
         })
 
         // Log and display an error message if there is a problem with the fetch operation
