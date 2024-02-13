@@ -95,6 +95,11 @@ permalink: /vulnerabilities
             background-color: var(--primary-color);
             border-radius: 5px;
             border: none;
+            }   
+        .button-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
         }
     </style>
 </head>
@@ -115,6 +120,10 @@ permalink: /vulnerabilities
     </div>
     <div id="result"></div>
 </body>
+
+<div class="button-container">
+    <a href="{{ site.baseurl }}/leaderboard" class="button">Continue</a>
+  </div>
 
 </html>
 

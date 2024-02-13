@@ -55,7 +55,7 @@ permalink: /profile
 </div>
 
 <div class="center-horizontal">
-      <button class="button" onclick="logout()">Tutorial</button>
+      <a href="{{ site.baseurl }}/intro" class="button">Tutorial</a>
 </div>
 
 <script>
