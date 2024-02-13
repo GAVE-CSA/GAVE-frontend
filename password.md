@@ -9,11 +9,14 @@ permalink: /password
 <body>
     <div class="container">
         <h2>Password Game</h2>
+        <br>
         <button id="start_button" class="select_button" onclick="startGame()">Start</button>
         <div id="play_container" class="play_container" style="display:none">
             <input type="text" id="passwordInput" placeholder="Enter your password">
+            <br><br>
             <button id="check_button" class="check_button" onclick="checkPassword()">Check</button>
             <ul id="requirements">
+                <br>
                 <li id="length">At least 8 characters</li>
                 <li id="uppercase" style="display:none;">At least one uppercase letter</li>
                 <li id="lowercase" style="display:none;">At least one lowercase letter</li>
@@ -23,35 +26,79 @@ permalink: /password
             <div id="timerDisplay" style="font-size: 24px; margin: 20px;">0:00</div>
         </div>
     </div>
+    <div id="resultModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal()">&times;</span>
+            <h3>Even though you met all the requirements, your password:</h3>
+            <p id="strengthResult">-</p>
+            <p id="crackTimeResult">-</p>
+        </div>
+    </div>
 </body>
 </html>
 
 <style>
-body {
-    font-family: "Poppins", sans-serif;
-    text-align: center;
-    padding-top: 50px;
-}
 
 .container {
     width: 300px;
     margin: 0 auto;
 }
-
-input, ul {
+.container input {
     width: 100%;
     padding: 10px;
     margin-top: 10px;
 }
 
-ul {
-    list-style-type: none;
-    padding: 0;
+.container button {
+    width: fit-content;
+    padding: 0.7rem;
+    font-size: 1.2rem;
+    white-space: nowrap;
+    background-color: var(--primary-color);
+    color: var(--white);
+    outline: none;
+    border: none;
+    border-radius: 10px; 
+    transition: .3s;
+    cursor:pointer;
 }
 
-li {
-    text-align: left;
-    margin-top: 5px;
+.container button:hover {
+        background-color: var(--primary-color-dark);
+    }
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
 }
 </style>
 
@@ -59,7 +106,7 @@ li {
     var timeSet;
     var constant = 0;
     var seconds = 0;
-    var mintues = 0;
+    var minutes = 0;
 
      function incrementTime() {
         constant++; //constant second count separate from seconds
@@ -86,11 +133,69 @@ li {
 
     }
 
+    function closeModal() {
+        document.getElementById("resultModal").style.display = "none";
+    }
+
+    function openModal() {
+        document.getElementById("resultModal").style.display = "block";
+    }
+
+    // based off password checker zxcvbn library
+    function evaluatePasswordStrength(password) {
+         let score = 0;
+
+        // basic check
+        const length = password.length;
+        const uppercase = /[A-Z]/.test(password);
+        const lowercase = /[a-z]/.test(password);
+        const digits = /[0-9]/.test(password);
+        const specialChars = /\W/.test(password);
+        const commonPasswords = ["123", "456", "password", "admin", "qwerty", "abc123", "Hello", "hello"]; // Example common passwords
+
+        // increase - diversity and length
+        if (length > 8) score += 1;
+        if (length > 12) score += 2;
+        if (uppercase&&lowercase) score += 1;
+        if (digits) score += 1;
+        if (specialChars) score += 1;
+
+        // decrease - common passwords
+        if (commonPasswords.some(common => password.toLowerCase().includes(common))) {
+            score = Math.max(score - 5, 0); // Penalize common passwords heavily
+        }
+
+        // entropy estimation
+        let charSetSize = (uppercase ? 26 : 0) + (lowercase ? 26 : 0) + (digits ? 10 : 0) + (specialChars ? 32 : 0);
+        let entropy = length * Math.log2(charSetSize);
+        
+        // score based on entropy (based on zxcvbn, simplified)
+        if (entropy > 70) score = Math.min(score + 2, 5); // very strong
+        else if (entropy > 50) score = Math.min(score + 1, 4); // strong
+
+        // est. crack time based on entropy (based on zxcvbn, simplified)
+        let timeToCrack = estimateCrackTime(entropy);
+
+        // score to strength categories
+        let strength = ["Very Weak", "Weak", "Fair", "Good", "Strong", "Very Strong"][score];
+
+        return {strength, timeToCrack};
+    }
+
+    function estimateCrackTime(entropy) {
+        // Simplified est (real time is based on diff types of attack models and hardware)
+        if (entropy < 50) return "Instant";
+        else if (entropy < 80) return "Seconds";
+        else if (entropy < 100) return "Hours";
+        else if (entropy < 120) return "Days";
+        else return "Centuries";
+    }
+
     const playContainer = document.getElementById("play_container");
     const startButton = document.getElementById("start_button");
     const checkButton = document.getElementById("check_button");
     
-    const timerDisplay = document.getELementById("timerDisplay");
+    const timerDisplay = document.getElementById("timerDisplay");
 
     function startGame() {
         startTimer();
@@ -136,7 +241,30 @@ li {
         }
         // if all requirements are met
         if (allMet) {
+            var { strength, timeToCrack} = evaluatePasswordStrength(password);
+
+            document.getElementById("strengthResult").textContent = `Strength: ${strength}`;
+            document.getElementById("crackTimeResult").textContent = `Estimated Crack Time: ${timeToCrack}`;
+
+            openModal();
             stopTimer();
         }
+    }
+
+    
+    //add game session time to backend database 
+    var deployURL = "http://localhost:8013";
+    function updateTime() {
+        var gameId = 1;
+        fetch(deployURL + `/api/gamesession/${gameId}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                })
+                .then((response) => response.json())
+                .then((newGamesession) => { 
+                    
+                });
     }
 </script>
