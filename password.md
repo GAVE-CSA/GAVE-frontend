@@ -177,7 +177,7 @@ permalink: /password
         let timeToCrack = estimateCrackTime(entropy);
 
         // score to strength categories
-        let strength = ["Very Weak", "Weak", "Okay", "Medium" "Strong", "Very Strong"][score];
+        let strength = ["Very Weak", "Weak", "Okay", "Medium", "Strong", "Very Strong"][score];
         alert(score);
 
         return {strength, timeToCrack};
