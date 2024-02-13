@@ -93,6 +93,7 @@ permalink: /profile
           console.log('Logout successful');
           document.getElementById("initName").innerHTML = null;
           document.getElementById("email").innerHTML = null;
+
         } else {
           console.error('Logout failed');
         }
