@@ -34,6 +34,9 @@ permalink: /password
             <p id="crackTimeResult">-</p>
         </div>
     </div>
+    <div class="button-container">
+    <a href="{{ site.baseurl }}/vulintro" class="button">Continue</a>
+  </div>
 </body>
 </html>
 
@@ -99,6 +102,19 @@ permalink: /password
     color: black;
     text-decoration: none;
     cursor: pointer;
+}
+
+    .button {
+padding: .5rem 2rem;
+color: var(--white) !important;
+background-color: var(--primary-color);
+border-radius: 5px;
+border: none;
+}   
+.button-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
 }
 </style>
 

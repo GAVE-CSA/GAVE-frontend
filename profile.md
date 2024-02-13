@@ -15,7 +15,7 @@ permalink: /profile
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 30vh;
+      height: 10vh;
       margin: 0;
     }
 
@@ -37,7 +37,8 @@ permalink: /profile
   </style>
 
 <body>
-
+<br>
+<br>
 <div class="center-horizontal">
     <img src="https://cdn.discordapp.com/attachments/879557685253664768/1206775295491706880/360_F_509597532_RKUuYsERhODmkxkZd82pSHnFtDAtgbzJ.png?ex=65dd3c13&is=65cac713&hm=6609ac7a33b11e2c4ab3fd1cc54908d5eb5d1f8c3ff015be2621028b6707a9ff&" alt="Circular Image" class="circle-img">
 </div>
@@ -53,11 +54,15 @@ permalink: /profile
       <button class="button" onclick="logout()">Logout</button>
 </div>
 
+<div class="center-horizontal">
+      <button class="button" onclick="logout()">Tutorial</button>
+</div>
+
 <script>
     window.onload = function () {
     fetchUserData();
   };
-  
+
   function logout() {
       var requestOptions = {
         method: 'POST',
