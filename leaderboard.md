@@ -28,7 +28,6 @@ permalink: /leaderboard
 
     function getLeaderboard() {
         var gameId = 1;
-        console.log(gameId);
         fetch(deployURL + `/api/gamesession/${gameId}`)
             .then(response => response.json())
             .then(data => { 
