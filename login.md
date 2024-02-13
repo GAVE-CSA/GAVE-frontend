@@ -118,7 +118,7 @@ h3 {
         })
         .then(result => {
             console.log(result);
-            window.location.href = "{{ site.baseurl }}/success";
+            window.location.href = "{{ site.baseurl }}/profile";
         })
         .catch(error => console.error('Error during login:', error));
 
