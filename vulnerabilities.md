@@ -86,7 +86,7 @@ permalink: /vulnerabilities
             <option value="googlechromebrowser">Google Chrome Browser</option>
             <option value="AppleMacOS13">Apple MacOS</option>
         </select>
-        <button id="fetchButton">Fetch Info</button>
+        <button id="fetchButton">Fetch Info!</button>
     </div>
     <div id="result"></div>
 </body>
@@ -94,9 +94,9 @@ permalink: /vulnerabilities
 </html>
 
 <script>
-    document.getElementById('fetchButton').addEventListener('click', fetchData);
+    document.getElementById('fetchButton').addEventListener('click', fetchInfo);
 
-    function fetchData() {
+    function fetchInfo() {
         const baseURL = "http://localhost:8013/api/vulnerability/software";
         const osDropdown = document.getElementById('osDropdown');
         const category = osDropdown.options[osDropdown.selectedIndex].value;
