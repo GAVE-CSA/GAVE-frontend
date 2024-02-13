@@ -30,7 +30,7 @@ permalink: /password
     <div id="resultModal" class="modal">
         <div class="modal-content">
             <span class="close-button" onclick="closeModal()">&times;</span>
-            <h3>You met all the requirements!:</h3>
+            <h3>You met all the requirements, your password's:</h3>
             <p id="strengthResult">-</p>
             <p id="crackTimeResult">-</p>
         </div>
