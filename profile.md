@@ -1,6 +1,6 @@
 ---
 layout: none
-permalink: /success
+permalink: /profile
 ---
 
 {%- include gave-navbar.html -%}
@@ -49,10 +49,57 @@ permalink: /success
     <button class="button">Scores</button>
 </div>
 
+<div class="center-horizontal">
+    <button class="button" onclick="logout()">Logout</button>
+</div>
+
 <script>
     window.onload = function () {
     fetchUserData();
   };
+
+//   function logout() {
+//     fetch('http://localhost:8013/api/person/logout', {
+//         method: 'POST',
+//         headers: {
+//             'Authorization': 'Bearer ' + localStorage.getItem('token'), // Assuming you store the token in localStorage
+//             'Content-Type': 'application/json',
+//         },
+//     })
+//     .then(response => {
+//         if (response.ok) {
+//             // Clear client-side data (e.g., remove the token from localStorage)
+//             localStorage.removeItem('token');
+//             console.log('Logout successful');
+//             window.location.reload();
+//             console.clear();
+//             document.getElementById("initName").innerHTML = null;
+//             document.getElementById("email").innerHTML = null;
+//         } else {
+//             console.error('Logout failed');
+//         }
+//     })
+//     .catch(error => console.error('Error during logout:', error));
+// }
+
+  function logout() {
+      fetch('http://localhost:8013/api/person/logout', {
+        method: 'POST',
+        credentials: 'include',  // Include cookies in the request
+      })
+      .then(response => {
+        if (response.ok) {
+          // Clear client-side data (e.g., update UI, redirect, etc.)
+          console.log('Logout successful');
+          document.getElementById("initName").innerHTML = null;
+          document.getElementById("email").innerHTML = null;
+        } else {
+          console.error('Logout failed');
+        }
+      })
+      .catch(error => console.error('Error during logout:', error));
+    }
+
 
   function fetchUserData() {
       var requestOptions = {
@@ -94,7 +141,6 @@ permalink: /success
             console.log(data);
             document.getElementById("initName").innerHTML = data.name;
             document.getElementById("email").innerHTML = data.email;
-            document.getElementById("dob").innerHTML = data.dob;
             })
         
        .catch(error => console.log('error', error));
