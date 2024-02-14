@@ -111,14 +111,16 @@ permalink: /password
     color: black;
     text-decoration: none;
     cursor: pointer;
+}
 
-    .button {
-padding: .5rem 2rem;
-color: var(--white) !important;
-background-color: var(--primary-color);
-border-radius: 5px;
-border: none;
+.button {
+    padding: .5rem 2rem;
+    color: var(--white) !important;
+    background-color: var(--primary-color);
+    border-radius: 5px;
+    border: none;
 }   
+
 .button-container {
     position: fixed;
     bottom: 20px;
