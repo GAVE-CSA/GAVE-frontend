@@ -5,81 +5,133 @@ permalink: /spotthediff
 
 {%- include gave-navbar.html -%}
 
-<html>
 <head>
-    <meta charset="utf-8" />
-    <title></title>
-</head>
-    <body>
-        <div id="container">
-            <h1 class="label">Find The Difference</h1>
-            <h3 id="status" style="text-align:center">Level 1</h3>
-            <div class="heading-container">
-                <h2 class="wrong">Wrong</h2>
-                <h2 class="correct">Correct</h2>
-            </div>
-			<div id="left"></div>
-            <div id="right"></div>
-        </div>
-        <script type="text/javascript" src="game.js"></script>
-    </body>
-</html>
-
-<style>
-    .label {
-        margin-top: 10px;
-        text-align: center; 
-        background-color: #5c48ee; 
-        color: #fff;
-        padding: 8px;
-        border-radius: 25px;
-    }
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
     body {
-        margin: 0;
+      text-align: center;
+    }
+    #game-container {
+      margin: 50px;
+    }
+    #result {
+      font-weight: bold;
+      margin-top: 20px;
+    }
+    .button {
+    padding: .5rem 2rem;
+    color: var(--white) !important;
+    background-color: var(--primary-color);
+    border-radius: 5px;
+    border: none;
+    }   
+    .button-container {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+    }
+  </style>
+<div id="game-container">
+  <h1>Email Phishing Game</h1>
+  <br>
+  <br>
+  <p id="email-text"></p>
+  <br>
+  <br>
+  <button class="button" onclick="checkAnswer(true)">Legitimate Email</button>
+  <button class="button" onclick="checkAnswer(false)">Phishing Email</button>
+  <br>
+  <br>
+  <p id="result"></p>
+  <div class="button-container">
+    <a href="{{ site.baseurl }}/passwordintro" class="button">Continue</a>
+  </div>
+</div>
+
+<script>
+  const emails = [
+    {
+      text: "Dear user, your account has been compromised. Click the link below to reset your password: https://fakephishingsite.com/reset",
+      isLegitimate: false
+    },
+    {
+      text: "Hello user, your recent purchase has been confirmed. If you did not make this purchase, please contact us immediately.",
+      isLegitimate: true
+    },
+    {
+      text: "URGENT: Your account will be suspended unless you verify your information. Click the link to proceed: https://fakephishingsite.com/verify",
+      isLegitimate: false
+    },
+    {
+      text: "Dear customer, thank you for your recent order. Here is your order confirmation: Order #123456",
+      isLegitimate: true
+    },
+    {
+      text: "Security Alert: Your account is at risk. Please log in to secure your account: https://fakephishingsite.com/login",
+      isLegitimate: false
+    },
+    {
+      text: "Congratulations! You've won a prize. Click the link to claim: https://fakephishingsite.com/winner",
+      isLegitimate: false
+    },
+    {
+      text: "Important update: Your software requires an immediate update. Click the link to download: https://legitsoftwaredownload.com",
+      isLegitimate: true
+    },
+    {
+      text: "Account notification: Your account has been logged in from a new device. Verify your identity: https://fakephishingsite.com/verify",
+      isLegitimate: false
+    },
+    {
+      text: "Invoice: Your recent payment is successful. Here is your invoice: Invoice #789012",
+      isLegitimate: true
+    },
+    {
+      text: "Security Notice: Your password has expired. Click the link to change it: https://fakephishingsite.com/changepassword",
+      isLegitimate: false
+    }
+  ];
+
+  let currentLevel = 0;
+  let correctAnswers = 0;
+
+  // Function to shuffle the emails array
+  function shuffle(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+  }
+
+  // Shuffle the emails array
+  shuffle(emails);
+
+  function startGame() {
+    if (currentLevel < 5) {
+      document.getElementById("email-text").textContent = emails[currentLevel].text;
+    } else {
+      endGame();
+    }
+  }
+
+  function checkAnswer(userResponse) {
+    if (emails[currentLevel].isLegitimate === userResponse) {
+      correctAnswers++;
     }
 
-    #container {
-        margin-left:250px;
-        width: 1040px;
-        height: 800px;
-    }
-    
-    .heading-container {
-        margin-top: 20px;
-        display: flex;
-        justify-content: space-between;
-    }
+    currentLevel++;
+    document.getElementById("result").textContent = "";
+    startGame();
+  }
 
-    .wrong,
-    .correct {
-        flex: 1;
-        text-align: center;
-    }
+  function endGame() {
+    document.getElementById("game-container").innerHTML = `
+      <h1>Game Over!</h1>
+      <p>You completed the game with ${correctAnswers} correct answers out of 5 questions.</p>
+    `;
+  }
 
-    #left {
-        width: 500px;
-        height: 500px;
-        margin-left: 65px;
-        position:absolute;
-        left:200px;
-        border: 3px solid violet;
-    }
-    #right {
-        width: 500px;
-        height: 500px;
-        position:absolute;
-        left:765px;
-        border: 3px solid violet;
-    }
-
-    .cube {
-        /*44px total*/
-        width: 40px;
-        height: 40px;
-        border: 2px solid black;
-        border-radius:50%;
-        position: absolute;
-        background: blue;
-    }
-</style>
+  // Start the game
+  startGame();
+</script>

@@ -51,6 +51,10 @@ permalink: /leaderboard
     </body>
 </html>
 
+<div class="button-container">
+    <a href="{{ site.baseurl }}/profile" class="button">Continue</a>
+  </div>
+
 <script>
     var deployURL = "http://localhost:8013";
 
@@ -161,5 +165,16 @@ permalink: /leaderboard
         left: 0;
         background-color: #5c48ee;
     }
-   
+    .button {
+            padding: .5rem 2rem;
+            color: var(--white) !important;
+            background-color: var(--primary-color);
+            border-radius: 5px;
+            border: none;
+            }   
+    .button-container {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+    }
 </style>

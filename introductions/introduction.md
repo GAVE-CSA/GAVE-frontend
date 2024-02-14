@@ -1,7 +1,7 @@
 ---
 layout: none
+permalink: /intro
 ---
-
 {%- include gave-navbar.html -%}
 
 <style>
@@ -45,7 +45,7 @@ layout: none
     }
 
     .heading_2{
-        font-weight: 700;
+        font-weight: 400;
         color: var(--primary-color);
     }
 
@@ -97,6 +97,10 @@ layout: none
         text-decoration: none;
         color: white;
     }
+
+    body {
+      padding-left: 50px; /* Adjust the value as needed */
+    }
 </style>
 
 <html>
@@ -104,18 +108,18 @@ layout: none
         <section class="container">
             <div class="content_container">
                 <h1>
-                    Web<br>
-                    <span class="heading_1">Security</span><br>
-                    <span class="heading_2">Wizards</span>
+                    <span class="heading_1">Introduction</span><br>
+                    <span class="heading_2">Web Security</span>
                 </h1>
                 <p>
-                    This webpage aims to teach people of all ages the importance of cybersecurity in our increasingly digital world. We hope to create an intuitive website for high schoolers to be educated and practice their knowledge with fun and interactive games! 
+                    The internet has become an integral part of our daily lives, facilitating communication, commerce, and information exchange. However, this digital landscape also presents an array of challenges, including cyber attacks, data breaches, and malicious activities. Without adequate web security measures in place, your website becomes susceptible to various risks, ranging from unauthorized data access to service disruptions.
                 </p>
-                <button><a class="explore-btn" href="{{ site.baseurl }}/signup">Explore</a></button>
             </div>
-            <div class="image_container">
-                <img src="images/image1.png" alt="image1" width="100">
-                <img src="images/image2.png" alt="image2">
+            <div class="content_container">
+                <div class="image_container">
+                    <img src="images/image3.png" alt="image3">
+                </div>
+                <button><a class="explore-btn" href="{{ site.baseurl }}/phishingintro">Continue</a></button>
             </div>
         </section>
     </body>
