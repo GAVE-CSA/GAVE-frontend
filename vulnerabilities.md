@@ -49,7 +49,6 @@ permalink: /vulnerabilities
             margin: 0;
             padding: 0;
             font-size: 12.35px;
-            width: 50px;
         }
         td {
             padding: 10px;
