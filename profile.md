@@ -72,7 +72,7 @@ permalink: /profile
       }
 
       //fetch('http://localhost:8013/api/person/logout', requestOptions)
-      fetch('http://wsw.stu.nighthawkcodingsociety.com/', requestOptions)
+      fetch('http://wsw.stu.nighthawkcodingsociety.com/api/person/logout', requestOptions)
       .then(response => {
         if (response.ok) {
           console.log('Logout successful');
