@@ -24,6 +24,15 @@ permalink: /password
                 <li id="specialChars" style="display:none;">At least one special character</li>
             </ul>
             <div id="timerDisplay" style="font-size: 24px; margin: 20px;">0:00</div>
+            <button id="restart_button" class="restart_button" onclick="restartGame()" style="display:none;">Restart</button>
+        </div>
+    </div>
+    <div id="resultModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal()">&times;</span>
+            <h3>You met all the requirements, your password's:</h3>
+            <p id="strengthResult">-</p>
+            <p id="crackTimeResult">-</p>
         </div>
     </div>
     <div id="resultModal" class="modal">
@@ -102,7 +111,6 @@ permalink: /password
     color: black;
     text-decoration: none;
     cursor: pointer;
-}
 
     .button {
 padding: .5rem 2rem;
@@ -157,6 +165,28 @@ border: none;
         document.getElementById("resultModal").style.display = "block";
     }
 
+
+    function restartGame() {
+        constant = 0;
+        seconds = 0;
+        minutes = 0;
+        document.getElementById("timerDisplay").innerText = "0:00";
+
+        // clear password input
+        document.getElementById("passwordInput").value = "";
+
+        // UI elements
+        document.getElementById("play_container").style.display = "none";
+        document.getElementById("start_button").style.display = "block"; 
+        document.getElementById("restart_button").style.display = "none";
+
+        // result displays
+        document.getElementById("strengthResult").textContent = "-";
+        document.getElementById("crackTimeResult").textContent = "-";
+        closeModal(); 
+    }
+
+
     // based off password checker zxcvbn library
     function evaluatePasswordStrength(password) {
          let score = 0;
@@ -178,7 +208,7 @@ border: none;
 
         // decrease - common passwords
         if (commonPasswords.some(common => password.toLowerCase().includes(common))) {
-            score = Math.max(score - 5, 0); // Penalize common passwords heavily
+            score = Math.max(score - 5, 0); 
         }
 
         // entropy estimation
@@ -193,8 +223,9 @@ border: none;
         let timeToCrack = estimateCrackTime(entropy);
 
         // score to strength categories
-        let strength = ["Very Weak", "Weak", "Okay", "Medium" "Strong", "Very Strong"][score];
-        alert(score);
+
+        let strength = ["Very Weak", "Weak", "Fair", "Medium", "Strong", "Very Strong"][score];
+        // alert(score);
 
         return {strength, timeToCrack};
     }
@@ -262,6 +293,7 @@ border: none;
 
             document.getElementById("strengthResult").textContent = `Strength: ${strength}`;
             document.getElementById("crackTimeResult").textContent = `Estimated Crack Time: ${timeToCrack}`;
+            document.getElementById("restart_button").style.display = "block"; // show restart button all requirements met
 
             openModal();
             stopTimer();
