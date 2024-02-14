@@ -81,7 +81,7 @@ function signup_user() {
         let fetchDob = document.getElementById("signUpDobInput").value;
 
         let requestURL = `http://wsw.stu.nighthawkcodingsociety.com/api/person/post?email=${fetchEmail}&password=${fetchPassword}&name=${fetchName}&dob=${fetchDob}`;
-
+        //test
         // let requestURL = `http://localhost:8013/api/person/post?email=${fetchEmail}&password=${fetchPassword}&name=${fetchName}&dob=${fetchDob}`;
         console.log(requestURL)
 
