@@ -49,10 +49,12 @@ permalink: /vulnerabilities
             margin: 0;
             padding: 0;
             font-size: 12.35px;
+            width: 50px;
         }
         td {
             padding: 10px;
         }
+
         #fetchButton,
         #osFilter,
         #osDropdown {
@@ -88,6 +90,20 @@ permalink: /vulnerabilities
             font-size: 16px;
             font-family: "Poppins", sans-serif;
         }
+
+        .button {
+            padding: .5rem 2rem;
+            color: var(--white) !important;
+            background-color: var(--primary-color);
+            border-radius: 5px;
+            border: none;
+            }   
+        .button-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+        }
+
     </style>
 </head>
 
@@ -101,12 +117,17 @@ permalink: /vulnerabilities
             <option value="googlechromebrowser">Google Chrome Browser</option>
             <option value="AppleMacOS13">Apple MacOS</option>
         </select>
-        <button id="fetchButton">Fetch Info</button>
+        <button class="button" id="fetchButton">Fetch Info</button>
+
         <label id="securityControlsLabel">What security controls are you interested in?</label>
         <input type="text" id="searchInput" placeholder="Search...">
     </div>
     <div id="result"></div>
 </body>
+
+<div class="button-container">
+    <a href="{{ site.baseurl }}/leaderboard" class="button">Continue</a>
+  </div>
 
 </html>
 
@@ -159,13 +180,11 @@ permalink: /vulnerabilities
             document.getElementById('result').innerHTML = table;
 
             filterTableRows();
-
             // Add tooltips to the column
             addTooltipToIdColumn();
             
             document.getElementById('searchInput').style.display = 'inline-block';
             document.getElementById('securityControlsLabel').style.display = 'block';
-            
             document.getElementById('searchInput').addEventListener('input', function() {
                 filterTableRows();
                });
@@ -177,6 +196,7 @@ permalink: /vulnerabilities
             document.getElementById('result').textContent = 'Error: ' + error.message;
         });
     }
+
 
     function filterTableRows() {
     const searchInput = document.getElementById('searchInput');
@@ -207,6 +227,7 @@ permalink: /vulnerabilities
         }
     }
 }
+
 
 
     function addTooltipToIdColumn() {

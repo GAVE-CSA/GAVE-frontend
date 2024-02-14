@@ -10,7 +10,6 @@ permalink: /spotthediff
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
-      font-family: Arial, sans-serif;
       text-align: center;
     }
     #game-container {
@@ -26,7 +25,12 @@ permalink: /spotthediff
     background-color: var(--primary-color);
     border-radius: 5px;
     border: none;
-}
+    }   
+    .button-container {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+    }
   </style>
 <div id="game-container">
   <h1>Email Phishing Game</h1>
@@ -40,6 +44,9 @@ permalink: /spotthediff
   <br>
   <br>
   <p id="result"></p>
+  <div class="button-container">
+    <a href="{{ site.baseurl }}/passwordintro" class="button">Continue</a>
+  </div>
 </div>
 
 <script>
