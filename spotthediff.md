@@ -52,7 +52,7 @@ permalink: /spotthediff
 <script>
   const emails = [
     {
-      text: "Dear user, your account has been compromised. Click the link below to reset your password: https://fakephishingsite.com/reset",
+      text: "Dear Beloved Friend, I know this message will come to you as surprised but permit me of my desire to go into business relationship with you. I am Miss Naomi Surugaba a daughter to late Al-badari Surugaba of Libya whom was murdered during the recent civil war in Libya in March 2011, before his death my late father was a strong supporter and a member of late Moammar Gadhafi Government in Tripoli. Meanwhile before the incident, my late Father came to Cotonou Benin republic with the sum of USD4, 200,000.00 (US$4.2M) which he deposited in a Bank here in Cotonou Benin Republic West Africa for safe keeping. I am here seeking for an avenue to transfer the fund to you in only you're reliable and trustworthy person to Investment the fund. I am here in Benin Republic because of the death of my parent's and I want you to help me transfer the fund into your bank account for investment purpose. Please I will offer you 20% of the total sum of USD4.2M for your assistance. Please I wish to transfer the fund urgently without delay into your account and also wish to relocate to your country due to the poor condition in Benin, as to enable me continue my education as I was a medical student before the sudden death of my parent's. Reply to my alternative email:missnaomisurugaba2@hotmail.com, Your immediate response would be appreciated.",
       isLegitimate: false
     },
     {
@@ -68,11 +68,11 @@ permalink: /spotthediff
       isLegitimate: true
     },
     {
-      text: "Security Alert: Your account is at risk. Please log in to secure your account: https://fakephishingsite.com/login",
+      text: "Thanks for working with us. Your bill for $373.75 was due on 28 Aug 2016. If you've already paid it, please ignore this email and sorry for bothering you. If you've not paid it, please do so as soon as possible. To view your bill visit https://in.xero.com/5LQDhRwfvoQfeDtLDMqkk1JWSqC4Cm.Jt4VVJRsGN. If you've got any questions, or want to arrange alternative payment don't hesitate to get in touch. Thanks, NJW Limited",
       isLegitimate: false
     },
     {
-      text: "Congratulations! You've won a prize. Click the link to claim: https://fakephishingsite.com/winner",
+      text: "Congratulations! You've won a prize. Click the link to claim: https://amazon.com/winner",
       isLegitimate: false
     },
     {
@@ -92,10 +92,8 @@ permalink: /spotthediff
       isLegitimate: false
     }
   ];
-
   let currentLevel = 0;
   let correctAnswers = 0;
-
   // Function to shuffle the emails array
   function shuffle(array) {
     for (let i = array.length - 1; i > 0; i--) {
@@ -103,7 +101,6 @@ permalink: /spotthediff
       [array[i], array[j]] = [array[j], array[i]];
     }
   }
-
   // Shuffle the emails array
   shuffle(emails);
 
@@ -114,7 +111,6 @@ permalink: /spotthediff
       endGame();
     }
   }
-
   function checkAnswer(userResponse) {
     if (emails[currentLevel].isLegitimate === userResponse) {
       correctAnswers++;
@@ -124,14 +120,15 @@ permalink: /spotthediff
     document.getElementById("result").textContent = "";
     startGame();
   }
-
   function endGame() {
     document.getElementById("game-container").innerHTML = `
       <h1>Game Over!</h1>
       <p>You completed the game with ${correctAnswers} correct answers out of 5 questions.</p>
     `;
   }
-
   // Start the game
   startGame();
+
+  console.log(correctAnswers);
+  
 </script>

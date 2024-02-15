@@ -35,17 +35,6 @@ permalink: /password
             <p id="crackTimeResult">-</p>
         </div>
     </div>
-    <div id="resultModal" class="modal">
-        <div class="modal-content">
-            <span class="close-button" onclick="closeModal()">&times;</span>
-            <h3>Even though you met all the requirements, your password:</h3>
-            <p id="strengthResult">-</p>
-            <p id="crackTimeResult">-</p>
-        </div>
-    </div>
-    <div class="button-container">
-    <a href="{{ site.baseurl }}/vulintro" class="button">Continue</a>
-  </div>
 </body>
 </html>
 
@@ -112,20 +101,6 @@ permalink: /password
     text-decoration: none;
     cursor: pointer;
 }
-
-.button {
-    padding: .5rem 2rem;
-    color: var(--white) !important;
-    background-color: var(--primary-color);
-    border-radius: 5px;
-    border: none;
-}   
-
-.button-container {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-}
 </style>
 
 <script>
@@ -167,7 +142,6 @@ permalink: /password
         document.getElementById("resultModal").style.display = "block";
     }
 
-
     function restartGame() {
         constant = 0;
         seconds = 0;
@@ -188,7 +162,6 @@ permalink: /password
         closeModal(); 
     }
 
-
     // based off password checker zxcvbn library
     function evaluatePasswordStrength(password) {
          let score = 0;
@@ -199,7 +172,7 @@ permalink: /password
         const lowercase = /[a-z]/.test(password);
         const digits = /[0-9]/.test(password);
         const specialChars = /\W/.test(password);
-        const commonPasswords = ["123", "456", "password", "admin", "qwerty", "abc123", "Hello", "hello"]; // Example common passwords
+        const commonPasswords = ["123", "456", "password", "admin", "qwerty", "abc123", "hello"]; // Example common passwords
 
         // increase - diversity and length
         if (length > 8) score += 1;
@@ -225,7 +198,6 @@ permalink: /password
         let timeToCrack = estimateCrackTime(entropy);
 
         // score to strength categories
-
         let strength = ["Very Weak", "Weak", "Fair", "Medium", "Strong", "Very Strong"][score];
         // alert(score);
 
@@ -307,15 +279,23 @@ permalink: /password
     var deployURL = "http://localhost:8013";
     function updateTime() {
         var gameId = 1;
+        var payload = {
+            gameId: gamedId,
+            timeScore: minutes*60 + seconds,
+        };
         fetch(deployURL + `/api/gamesession/${gameId}`, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                })
-                .then((response) => response.json())
-                .then((newGamesession) => { 
-                    
-                });
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(payload), // convret payload to JSOn
+        })
+        .then((response) => response.json())
+        .then((newGamesession) => { 
+            console.log('Game session updated:', newGameSession)
+        })
+        .catch(error => {
+            console.error('Error updating game session:', error)
+        });
     }
 </script>

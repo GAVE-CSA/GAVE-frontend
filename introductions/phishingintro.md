@@ -84,6 +84,6 @@ permalink: /phishingintro
   </div>
 
   <div class="button-container">
-    <a href="{{ site.baseurl }}/password" class="button">Continue to phishing game</a>
+    <a href="{{ site.baseurl }}/spotthediff" class="button">Continue to phishing game</a>
   </div>
 </div>
