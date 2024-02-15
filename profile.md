@@ -71,8 +71,8 @@ permalink: /profile
         credentials: 'include',
       }
 
-      //fetch('http://localhost:8013/api/person/logout', requestOptions)
-      fetch('http://wsw.stu.nighthawkcodingsociety.com/', requestOptions)
+      fetch('http://localhost:8013/api/person/logout', requestOptions)
+      // fetch('http://wsw.stu.nighthawkcodingsociety.com/api/person/logout', requestOptions)
       .then(response => {
         if (response.ok) {
           console.log('Logout successful');
@@ -95,8 +95,8 @@ permalink: /profile
         credentials: 'include',
       };
 
-      //fetch("http://localhost:8013/api/person/jwt", requestOptions)
-      fetch("https://wsw.stu.nighthawkcodingsociety.com/api/person/jwt", requestOptions)
+      fetch("http://localhost:8013/api/person/jwt", requestOptions)
+      // fetch("https://wsw.stu.nighthawkcodingsociety.com/api/person/jwt", requestOptions)
         .then(response => {
                 if (!response.ok) {
                     const errorMsg = 'Login error: ' + response.status;

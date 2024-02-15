@@ -49,7 +49,6 @@ permalink: /vulnerabilities
             margin: 0;
             padding: 0;
             font-size: 12.35px;
-            width: 50px;
         }
         td {
             padding: 10px;
@@ -135,7 +134,7 @@ permalink: /vulnerabilities
     document.getElementById('fetchButton').addEventListener('click', fetchInfo);
 
     function fetchInfo() {
-        const baseURL = "http://localhost:8013/api/vulnerability/software";
+        const baseURL = "https://wsw.stu.nighthawkcodingsociety.com/api/vulnerability/software";
         const osDropdown = document.getElementById('osDropdown');
         const category = osDropdown.options[osDropdown.selectedIndex].value;
         console.log(category)

@@ -92,6 +92,7 @@ h3 {
         };
 
         fetch("http://localhost:8013/authenticate", requestOptions)
+        // fetch("http://wsw.stu.nighthawkcodingsociety.com/authenticate", requestOptions)
         .then(response => {
             if (!response.ok) {
                 const errorMsg = 'Login error: ' + response.status;
