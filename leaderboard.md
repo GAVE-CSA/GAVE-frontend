@@ -84,24 +84,32 @@ permalink: /leaderboard
             });
     }
 
+    function getLeaderboard3() {
+        fetch(deployURL + "/api/gamesession/plays")
+            .then(response => response.json())
+            .then(data => { 
+                console.log(data)
+                formatBoard3(data)  
+            })
+            .catch(err => {
+                console.log(err);
+            });
+    }
+
     function formatBoard1(data){
-        const board1 = document.getElementById("board1");
-        data.forEach(item =>{
-            const item_row = document.createElement("tr");
-            //data_row.className = ""
-            const user_value = document.createElement("th");
-            user_value.innerHTML = item.item1;
-            const time_value = document.createElement("th");
-            time_value.innerHTML = item.item2;
-            //append
-            item_row.appendChild(user_value);
-            item_row.appendChild(time_value);
-            board1.appendChild(item_row);
-        })
+        formatBoard(data, "board1");
     }
 
     function formatBoard2(data){
-        const board1 = document.getElementById("board2");
+        formatBoard(data, "board2");
+    }
+
+    function formatBoard3(data){
+        formatBoard(data, "board3");
+    }
+
+    function formatBoard(data, board) {
+        const table = document.getElementById(board);
         data.forEach(item =>{
             const item_row = document.createElement("tr");
             //data_row.className = ""
@@ -112,12 +120,13 @@ permalink: /leaderboard
             //append
             item_row.appendChild(user_value);
             item_row.appendChild(time_value);
-            board1.appendChild(item_row);
+            table.appendChild(item_row);
         })
     }
 
     getLeaderboard1();
     getLeaderboard2();
+    getLeaderboard3();
     
 </script>
 
@@ -143,7 +152,8 @@ permalink: /leaderboard
     }
     
     .board1-header, .board2-header, .board3-header {
-        margin-left: 50px; 
+        text-align: center;
+        margin: 5px;
         font-size: 15px;
     }
 
@@ -151,6 +161,7 @@ permalink: /leaderboard
         width: 80%;
         margin-left: 50px;
         border-radius: 15px;
+        overflow: hidden;
     }
 
     table, th, td {
@@ -165,6 +176,7 @@ permalink: /leaderboard
         left: 0;
         background-color: #5c48ee;
     }
+
     .button {
             padding: .5rem 2rem;
             color: var(--white) !important;
@@ -172,6 +184,7 @@ permalink: /leaderboard
             border-radius: 5px;
             border: none;
             }   
+
     .button-container {
         position: fixed;
         bottom: 20px;

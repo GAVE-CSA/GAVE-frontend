@@ -298,4 +298,6 @@ permalink: /password
             console.error('Error updating game session:', error)
         });
     }
+
+    
 </script>
