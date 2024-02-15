@@ -49,12 +49,10 @@ permalink: /vulnerabilities
             margin: 0;
             padding: 0;
             font-size: 12.35px;
-            width: 50px;
         }
         td {
             padding: 10px;
         }
-
         #fetchButton,
         #osFilter,
         #osDropdown {
@@ -90,7 +88,6 @@ permalink: /vulnerabilities
             font-size: 16px;
             font-family: "Poppins", sans-serif;
         }
-
         .button {
             padding: .5rem 2rem;
             color: var(--white) !important;
@@ -118,7 +115,6 @@ permalink: /vulnerabilities
             <option value="AppleMacOS13">Apple MacOS</option>
         </select>
         <button class="button" id="fetchButton">Fetch Info</button>
-
         <label id="securityControlsLabel">What security controls are you interested in?</label>
         <input type="text" id="searchInput" placeholder="Search...">
     </div>
@@ -135,7 +131,7 @@ permalink: /vulnerabilities
     document.getElementById('fetchButton').addEventListener('click', fetchInfo);
 
     function fetchInfo() {
-        const baseURL = "https://wsw.stu.nighthawkcodingsociety.com/api/vulnerability/software";
+        const baseURL = "http://localhost:8013/api/vulnerability/software";
         const osDropdown = document.getElementById('osDropdown');
         const category = osDropdown.options[osDropdown.selectedIndex].value;
         console.log(category)
