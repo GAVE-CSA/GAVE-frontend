@@ -15,7 +15,7 @@ permalink: /profile
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 30vh;
+      height: 10vh;
       margin: 0;
     }
 
@@ -37,7 +37,8 @@ permalink: /profile
   </style>
 
 <body>
-
+<br>
+<br>
 <div class="center-horizontal">
     <img src="https://cdn.discordapp.com/attachments/879557685253664768/1206775295491706880/360_F_509597532_RKUuYsERhODmkxkZd82pSHnFtDAtgbzJ.png?ex=65dd3c13&is=65cac713&hm=6609ac7a33b11e2c4ab3fd1cc54908d5eb5d1f8c3ff015be2621028b6707a9ff&" alt="Circular Image" class="circle-img">
 </div>
@@ -50,7 +51,11 @@ permalink: /profile
 </div>
 
 <div class="center-horizontal">
-    <button class="button" onclick="logout()">Logout</button>
+      <button class="button" onclick="logout()">Logout</button>
+</div>
+
+<div class="center-horizontal">
+      <a href="{{ site.baseurl }}/intro" class="button">Tutorial</a>
 </div>
 
 <script>
@@ -58,24 +63,22 @@ permalink: /profile
     fetchUserData();
   };
 
-
-  // function deleteCookie(cookieName) {
-  //     document.cookie = cookieName + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-  // }
-
   function logout() {
-      fetch('http://localhost:8013/api/person/logout', {
+      var requestOptions = {
         method: 'POST',
-        credentials: 'include',  // Include cookies in the request
-      })
+        mode: 'cors',
+        cache: 'default',
+        credentials: 'include',
+      }
+
+      fetch('http://localhost:8013/api/person/logout', requestOptions)
+      // fetch('http://wsw.stu.nighthawkcodingsociety.com/api/person/logout', requestOptions)
       .then(response => {
         if (response.ok) {
-          // deleteCookie("jwt");
-       
           console.log('Logout successful');
           document.getElementById("initName").innerHTML = null;
           document.getElementById("email").innerHTML = null;
-
+          // window.location.reload();
         } else {
           console.error('Logout failed');
         }
@@ -93,7 +96,7 @@ permalink: /profile
       };
 
       fetch("http://localhost:8013/api/person/jwt", requestOptions)
-      // fetch("https://.stu.nighthawkcodingsociety.com/api/person/jwt", requestOptions)
+      // fetch("https://wsw.stu.nighthawkcodingsociety.com/api/person/jwt", requestOptions)
         .then(response => {
                 if (!response.ok) {
                     const errorMsg = 'Login error: ' + response.status;
