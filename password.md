@@ -279,15 +279,23 @@ permalink: /password
     var deployURL = "http://localhost:8013";
     function updateTime() {
         var gameId = 1;
+        var payload = {
+            gameId: gamdId; 
+            timeScore: minutes*60 + seconds,
+        };
         fetch(deployURL + `/api/gamesession/${gameId}`, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                })
-                .then((response) => response.json())
-                .then((newGamesession) => { 
-                    
-                });
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(payload), // convret payload to JSOn
+        })
+        .then((response) => response.json())
+        .then((newGamesession) => { 
+            console.log('Game session updated:', newGameSession)
+        });
+        .cath(error => {
+            console.error('Error updating game session:', error)
+        });
     }
 </script>
